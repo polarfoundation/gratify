@@ -1,0 +1,14 @@
+plugins {
+   id 'java-platform'
+}
+
+group "foundation.polar"
+description = "Gratify Network Framework (Bill of Materials)"
+
+dependencies {
+   constraints {
+      parent.moduleProjects.sort { "$it.name" }.each {
+         api it
+      }
+   }
+}

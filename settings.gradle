@@ -1,0 +1,17 @@
+
+pluginManagement {
+   repositories {
+      gradlePluginPortal()
+      mavenCentral()
+   }
+}
+
+rootProject.name = 'gratify'
+
+include(':gratify-bom')
+include(':gratify-base')
+include(':gratify-entry')
+
+rootProject.children.each {project ->
+   project.buildFileName = "${project.name}.gradle"
+}
