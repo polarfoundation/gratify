@@ -8,6 +8,7 @@ public class StringUtils {
          return "null_object";
       } else {
          return simpleClassName(object.getClass());
+
       }
    }
 

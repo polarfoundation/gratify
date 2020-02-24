@@ -8,33 +8,31 @@ allprojects {
 }
 
 ext {
-    moduleProjects = subprojects.findAll { it.name.startsWith("gratify-") } - project(":gratify-bom")
-    javaProjects = subprojects - project(":gratify-bom")
+//    moduleProjects = subprojects.findAll { it.name.startsWith("gratify-") } - project(":gratify-bom")
+//    javaProjects = subprojects - project(":gratify-bom")
 }
 
 subprojects {
-    apply plugin: 'maven-publish'
 
-    version "1.0-SNAPSHOT"
-
+    apply plugin: 'java'
+    apply plugin: 'org.javamodularity.moduleplugin'
+    sourceCompatibility = JavaVersion.VERSION_13
+    targetCompatibility = JavaVersion.VERSION_13
 
     repositories {
         mavenCentral()
     }
 
-//    test {
-//        useJUnitPlatform()
-//
-//        testLogging {
-//            events 'PASSED', 'FAILED', 'SKIPPED'
-//        }
-//    }
+    dependencies {
+        testImplementation "org.junit.jupiter:junit-jupiter-api:$jUnitVersion"
+        testImplementation "org.junit.jupiter:junit-jupiter-params:$jUnitVersion"
+        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$jUnitVersion"
+    }
 
-//    publishing {
-//        publications {
-//            maven(MavenPublication) {
-//                from(components.java)
-//            }
-//        }
-//    }
+    test {
+        useJUnitPlatform()
+        testLogging {
+            events "passed", "skipped", "failed"
+        }
+    }
 }

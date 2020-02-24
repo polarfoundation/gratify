@@ -1,0 +1,13 @@
+plugins {
+   id 'java-gradle-plugin'
+}
+
+repositories {
+   mavenCentral()
+   gradlePluginPortal()
+}
+
+dependencies {
+   implementation gradleApi()
+   testImplementation gradleTestKit()
+}

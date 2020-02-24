@@ -1,0 +1,5 @@
+--add-modules
+  java.scripting
+
+--add-reads
+  gratify.base=java.scripting

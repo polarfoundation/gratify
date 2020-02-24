@@ -1,14 +1,12 @@
-
 pluginManagement {
    repositories {
       gradlePluginPortal()
-      mavenCentral()
+      jcenter()
    }
 }
 
 rootProject.name = 'gratify'
 
-include(':gratify-bom')
 include(':gratify-base')
 include(':gratify-entry')
 

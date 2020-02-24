@@ -22,6 +22,7 @@ bin
 build.log
 dump.rdb
 lib/
+out/
 manifest.yml
 target
 build
