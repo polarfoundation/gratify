@@ -8,7 +8,14 @@ pluginManagement {
 rootProject.name = 'gratify'
 
 include(':gratify-base')
+include(':gratify-beans')
+include(':gratify-processor')
+include(':gratify-transport')
+include(':gratify-jdbc')
+include(':gratify-orm')
 include(':gratify-entry')
+include(':gratify-boot')
+include(':gratify-bom')
 
 rootProject.children.each {project ->
    project.buildFileName = "${project.name}.gradle"

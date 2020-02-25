@@ -8,14 +8,14 @@ allprojects {
 }
 
 ext {
-//    moduleProjects = subprojects.findAll { it.name.startsWith("gratify-") } - project(":gratify-bom")
-//    javaProjects = subprojects - project(":gratify-bom")
+    moduleProjects = subprojects.findAll { it.name.startsWith("gratify-") } - project(":gratify-bom")
+    javaProjects = subprojects - project(":gratify-bom")
 }
 
-subprojects {
-
+configure(moduleProjects) {
     apply plugin: 'java'
     apply plugin: 'org.javamodularity.moduleplugin'
+
     sourceCompatibility = JavaVersion.VERSION_13
     targetCompatibility = JavaVersion.VERSION_13
 
@@ -33,6 +33,9 @@ subprojects {
         useJUnitPlatform()
         testLogging {
             events "passed", "skipped", "failed"
+        }
+        moduleOptions {
+            runOnClasspath = true
         }
     }
 }

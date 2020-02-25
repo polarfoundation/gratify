@@ -1,0 +1,5 @@
+description = "Gratify Entry Module"
+
+dependencies {
+   implementation project(":gratify-base")
+}

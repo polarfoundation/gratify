@@ -1,2 +1,2 @@
-module gratify.gratify.entry.main {
+module gratify.gratify.entry {
 }
