@@ -1,7 +1,7 @@
 package foundation.polar.gratify.lang;
 
-import foundation.polar.gratify.annotations.MonotonicQualifier;
-import foundation.polar.gratify.annotations.SubtypeOf;
+import foundation.polar.gratify.annotations.checker.MonotonicQualifier;
+import foundation.polar.gratify.annotations.checker.SubtypeOf;
 
 import java.lang.annotation.*;
 

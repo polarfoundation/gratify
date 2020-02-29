@@ -1,8 +1,8 @@
 package foundation.polar.gratify.annotations.utils;
 
-import foundation.polar.gratify.annotations.Pure;
-import foundation.polar.gratify.annotations.compilermsgs.CompilerMessageKey;
-import foundation.polar.gratify.annotations.dataflow.SideEffectFree;
+import foundation.polar.gratify.annotations.checker.Pure;
+import foundation.polar.gratify.annotations.checker.compilermsgs.CompilerMessageKey;
+import foundation.polar.gratify.annotations.checker.dataflow.SideEffectFree;
 import foundation.polar.gratify.lang.Nullable;
 
 import java.util.*;

@@ -8,7 +8,7 @@ import com.sun.tools.javac.tree.JCTree;
 import com.sun.tools.javac.tree.TreeInfo;
 import com.sun.tools.javac.util.Context;
 import com.sun.tools.javac.util.Pair;
-import foundation.polar.gratify.annotations.Pure;
+import foundation.polar.gratify.annotations.checker.Pure;
 import foundation.polar.gratify.lang.EnsuresNonNullIf;
 import foundation.polar.gratify.lang.NonNull;
 import foundation.polar.gratify.lang.Nullable;

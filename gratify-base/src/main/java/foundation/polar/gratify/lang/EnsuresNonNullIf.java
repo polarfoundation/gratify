@@ -1,7 +1,7 @@
 package foundation.polar.gratify.lang;
 
-import foundation.polar.gratify.annotations.ConditionalPostconditionAnnotation;
-import foundation.polar.gratify.annotations.InheritedAnnotation;
+import foundation.polar.gratify.annotations.checker.ConditionalPostconditionAnnotation;
+import foundation.polar.gratify.annotations.checker.InheritedAnnotation;
 
 import java.lang.annotation.*;
 

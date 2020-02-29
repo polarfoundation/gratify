@@ -1,7 +1,7 @@
 package foundation.polar.gratify.utils.compiler;
 
-import foundation.polar.gratify.annotations.dataflow.SideEffectFree;
-import foundation.polar.gratify.annotations.interning.Interned;
+import foundation.polar.gratify.annotations.checker.dataflow.SideEffectFree;
+import foundation.polar.gratify.annotations.checker.interning.Interned;
 import foundation.polar.gratify.lang.Nullable;
 
 import javax.annotation.processing.ProcessingEnvironment;

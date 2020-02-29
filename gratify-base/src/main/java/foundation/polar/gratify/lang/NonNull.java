@@ -1,6 +1,6 @@
 package foundation.polar.gratify.lang;
 
-import foundation.polar.gratify.annotations.*;
+import foundation.polar.gratify.annotations.checker.*;
 import foundation.polar.gratify.annotations.utils.LiteralKind;
 import foundation.polar.gratify.annotations.utils.TypeUseLocation;
 

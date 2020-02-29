@@ -10,11 +10,11 @@ import com.sun.tools.javac.util.Context;
 import com.sun.tools.javac.util.DiagnosticSource;
 import com.sun.tools.javac.util.JCDiagnostic;
 import com.sun.tools.javac.util.Log;
-import foundation.polar.gratify.annotations.AnnotatedFor;
-import foundation.polar.gratify.annotations.SupportedLintOptions;
-import foundation.polar.gratify.annotations.SupportedOptions;
-import foundation.polar.gratify.annotations.SuppressWarningsKeys;
-import foundation.polar.gratify.annotations.compilermsgs.CompilerMessageKey;
+import foundation.polar.gratify.annotations.checker.AnnotatedFor;
+import foundation.polar.gratify.annotations.checker.SupportedLintOptions;
+import foundation.polar.gratify.annotations.checker.SupportedOptions;
+import foundation.polar.gratify.annotations.checker.SuppressWarningsKeys;
+import foundation.polar.gratify.annotations.checker.compilermsgs.CompilerMessageKey;
 import foundation.polar.gratify.lang.Nullable;
 import foundation.polar.gratify.utils.compiler.*;
 

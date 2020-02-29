@@ -7,7 +7,7 @@ import com.sun.tools.javac.code.TypeTag;
 import com.sun.tools.javac.model.JavacTypes;
 import com.sun.tools.javac.processing.JavacProcessingEnvironment;
 import com.sun.tools.javac.util.Context;
-import foundation.polar.gratify.annotations.signature.DotSeparatedIdentifiers;
+import foundation.polar.gratify.annotations.checker.signature.DotSeparatedIdentifiers;
 import foundation.polar.gratify.lang.Nullable;
 
 import javax.annotation.processing.ProcessingEnvironment;

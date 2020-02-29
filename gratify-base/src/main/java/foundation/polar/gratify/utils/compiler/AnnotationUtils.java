@@ -5,8 +5,7 @@ import com.sun.source.tree.MethodTree;
 import com.sun.source.tree.ModifiersTree;
 import com.sun.tools.javac.code.Symbol;
 import com.sun.tools.javac.code.Type;
-import com.sun.tools.javac.model.JavacElements;
-import foundation.polar.gratify.annotations.signature.DotSeparatedIdentifiers;
+import foundation.polar.gratify.annotations.checker.signature.DotSeparatedIdentifiers;
 import foundation.polar.gratify.annotations.utils.SourceTreeUtils;
 import foundation.polar.gratify.lang.Nullable;
 
