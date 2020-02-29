@@ -14,7 +14,6 @@ include(':gratify-transport')
 include(':gratify-jdbc')
 include(':gratify-orm')
 include(':gratify-entry')
-include(':gratify-boot')
 include(':gratify-bom')
 
 rootProject.children.each {project ->

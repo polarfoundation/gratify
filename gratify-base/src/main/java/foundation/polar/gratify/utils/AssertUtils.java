@@ -1,4 +1,5 @@
 package foundation.polar.gratify.utils;
 
-public interface Timer {
+public class AssertUtils {
+
 }

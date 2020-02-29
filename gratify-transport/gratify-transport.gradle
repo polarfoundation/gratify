@@ -1,1 +1,5 @@
 description = "Gratify Transport Module"
+
+dependencies {
+   implementation project(":gratify-base")
+}
