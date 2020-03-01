@@ -1,4 +1,11 @@
 package foundation.polar.gratify.lang;
 
-public @interface NonNullFields {
-}
+import org.checkerframework.checker.nullness.qual.NonNull;
+
+import java.lang.annotation.*;
+
+@Target(ElementType.PACKAGE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@NonNull
+public @interface NonNullFields {}

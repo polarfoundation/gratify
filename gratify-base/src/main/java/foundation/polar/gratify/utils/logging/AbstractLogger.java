@@ -1,6 +1,7 @@
 package foundation.polar.gratify.utils.logging;
 
 import foundation.polar.gratify.utils.StringUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.io.ObjectStreamException;
 import java.io.Serializable;
@@ -202,8 +203,9 @@ public abstract class AbstractLogger implements Logger, Serializable {
       }
    }
 
-   protected Object readResolve() throws ObjectStreamException {
-      return LoggerFactory.getInstance(getName());
+   protected @Nullable Object readResolve() throws ObjectStreamException {
+//      return LoggerFactory.getInstance(getName());
+      return null;
    }
 
    @Override

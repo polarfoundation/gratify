@@ -1,5 +1,6 @@
 package foundation.polar.gratify.utils;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.lang.reflect.Array;
@@ -26,7 +27,7 @@ public abstract class ObjectUtils {
       }
       if (declaredExceptions != null) {
          for (Class<?> declaredException : declaredExceptions) {
-            if (declaredException.isInstance(ex)) {
+            if (declaredException != null && declaredException.isInstance(ex)) {
                return true;
             }
          }
@@ -108,7 +109,7 @@ public abstract class ObjectUtils {
       return false;
    }
 
-   public static <E extends Enum<?>> E caseInsensitiveValueOf(E[] enumValues, String constant) {
+   public static <E extends Enum<?>> E caseInsensitiveValueOf(E [] enumValues, String constant) {
       for (E candidate : enumValues) {
          if (candidate.toString().equalsIgnoreCase(constant)) {
             return candidate;
@@ -296,7 +297,7 @@ public abstract class ObjectUtils {
       return hash;
    }
 
-   public static int nullSafeHashCode(@Nullable float[] array) {
+   public static int nullSafeHashCode(float @Nullable[] array) {
       if (array == null) {
          return 0;
       }

@@ -1,5 +1,9 @@
 package foundation.polar.gratify.env;
 
-public class GratifyProperties {
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
+public class GratifyProperties {
+   @Nullable
+   String name = null;
 }
