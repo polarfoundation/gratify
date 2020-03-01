@@ -8,6 +8,7 @@ module gratify.base {
    requires java.logging;
    requires org.apache.logging.log4j;
    requires org.slf4j;
+   requires java.annotation;
 
    exports foundation.polar.gratify.utils;
    exports foundation.polar.gratify.buffer;
