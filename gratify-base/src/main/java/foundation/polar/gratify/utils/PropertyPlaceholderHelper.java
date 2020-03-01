@@ -187,7 +187,7 @@ public class PropertyPlaceholderHelper {
       }
       return -1;
    }
-   
+
    /**
     * Strategy interface used to resolve replacement values for placeholders contained in Strings.
     */
