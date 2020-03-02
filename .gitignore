@@ -26,6 +26,7 @@ out/
 manifest.yml
 target
 build
+!buildSrc/src/**/build
 local.properties
 transaction-logs
 .gradletasknamecache

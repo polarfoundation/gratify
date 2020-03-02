@@ -64,7 +64,6 @@ public abstract class SystemPropertyUtils {
       return helper.replacePlaceholders(text, new SystemPropertyPlaceholderResolver(text));
    }
 
-
    /**
     * PlaceholderResolver implementation that resolves against system properties
     * and system environment variables.

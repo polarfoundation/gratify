@@ -10,7 +10,6 @@ import java.util.function.Predicate;
  * {@link #of(String...) of(...)} factory method.
  *
  * @author Phillip Webb
- * @since 5.1
  */
 @FunctionalInterface
 public interface Profiles {
@@ -21,7 +20,6 @@ public interface Profiles {
     * currently active
     */
    boolean matches(Predicate<String> activeProfiles);
-
 
    /**
     * Create a new {@link Profiles} instance that checks for matches against

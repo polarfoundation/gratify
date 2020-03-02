@@ -10,8 +10,8 @@ allprojects {
 }
 
 ext {
-    moduleProjects = subprojects.findAll { it.name.startsWith("gratify-") } - project(":gratify-bom")
-    javaProjects = subprojects - project(":gratify-bom")
+    moduleProjects = subprojects.findAll { it.name.startsWith("gratify-") }
+    javaProjects = subprojects
 }
 
 configure(moduleProjects) {
