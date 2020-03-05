@@ -49,11 +49,9 @@ public class DefaultModularityExtension implements ModularityExtension {
    @Override
    public void mixedJavaRelease(int mainJavaRelease, int moduleInfoJavaRelease) {
       validateMixedJavaReleaseArgs(mainJavaRelease, moduleInfoJavaRelease);
-
       CompileModuleOptions moduleOptions = helper().compileJavaTask(JavaPlugin.COMPILE_JAVA_TASK_NAME)
          .getExtensions().getByType(CompileModuleOptions.class);
       moduleOptions.setCompileModuleInfoSeparately(true);
-
       project.afterEvaluate(p -> configureMixedJavaRelease(mainJavaRelease, moduleInfoJavaRelease));
    }
 
@@ -78,7 +76,6 @@ public class DefaultModularityExtension implements ModularityExtension {
       var compileModuleInfoJava = helper().compileJavaTask(CompileModuleOptions.COMPILE_MODULE_INFO_TASK_NAME);
       setJavaRelease(compileModuleInfoJava, moduleInfoJavaRelease);
    }
-
 
    private JavaProjectHelper helper() {
       return new JavaProjectHelper(project);

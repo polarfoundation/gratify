@@ -30,7 +30,6 @@ import java.util.*;
  * @see StandardEnvironment
  */
 public abstract class AbstractEnvironment implements ConfigurableEnvironment {
-
    /**
     * System property that instructs Spring to ignore system environment variables,
     * i.e. to never attempt to retrieve such a variable via {@link System#getenv()}.

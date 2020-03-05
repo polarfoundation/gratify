@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
  * group the jars in classpath collection by config, if jar in path config, then put jar into --patch-module, if not in
  * path config, put it into --module-path
  */
-public final class PatchModuleExtension {
+public class PatchModuleExtension {
    private List<String> config = new ArrayList<>();
    private Map<String, String> indexByJar = new HashMap<>();
 

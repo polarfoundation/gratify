@@ -7,7 +7,6 @@ import org.gradle.api.Project;
 import org.gradle.api.file.FileCollection;
 import org.gradle.api.tasks.compile.JavaCompile;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +36,7 @@ class CompileJavaTaskMutator {
     * @param javaCompile {@code compileJava} if {@link CompileModuleOptions#getCompileModuleInfoSeparately()}
     *                    is {@code false}, {@code compileModuleInfoJava} if it is {@code true}
     */
-   void modularizeJavaCompileTask(JavaCompile javaCompile) {
+   public void modularizeJavaCompileTask(JavaCompile javaCompile) {
       List<String> compilerArgs = buildCompilerArgs(javaCompile);
       javaCompile.getOptions().setCompilerArgs(compilerArgs);
       javaCompile.setClasspath(project.files());
@@ -45,13 +44,12 @@ class CompileJavaTaskMutator {
    }
 
    // Setting the sourcepath is necessary when using forked compilation for module-info.java
-   void configureSourcepath(JavaCompile javaCompile) {
+   public void configureSourcepath(JavaCompile javaCompile) {
       var sourcePaths = project.files(helper().mainSourceSet().getJava().getSrcDirs());
       javaCompile.getOptions().setSourcepath(sourcePaths);
    }
 
    // Setting the sourcepath is necessary when using forked compilation for module-info.java
-
    private List<String> buildCompilerArgs(JavaCompile javaCompile) {
       var compilerArgs = new ArrayList<>(javaCompile.getOptions().getCompilerArgs());
       var patchModuleExtension = helper().extension(PatchModuleExtension.class);

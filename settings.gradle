@@ -14,9 +14,14 @@ include(':gratify-transport')
 include(':gratify-jdbc')
 include(':gratify-orm')
 include(':gratify-entry')
-include(':gratify-boot')
+include(':gratify-boot:gratify-boot')
+include(':gratify-boot:gratify-boot-parent')
+include(':gratify-boot:gratify-boot-autoconfigure')
+include(':gratify-boot:gratify-boot-dependencies')
+include(':gratify-clients:gratify-client-etcd')
+include(':gratify-clients:gratify-client-mysql')
+include(':gratify-clients:gratify-client-redis')
 
 rootProject.children.each {project ->
    project.buildFileName = "${project.name}.gradle"
-   print project.buildFileName
 }

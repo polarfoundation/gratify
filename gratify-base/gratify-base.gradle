@@ -1,5 +1,17 @@
 description = "Gratify Base Module"
 
+compileJava {
+   moduleOptions {
+      compileModuleInfoSeparately = false
+   }
+}
+
+test {
+   moduleOptions {
+      runOnClasspath = true
+   }
+}
+
 dependencies {
    implementation 'commons-logging:commons-logging:1.2'
    implementation 'org.apache.logging.log4j:log4j-api:2.13.1'

@@ -23,7 +23,16 @@ configurations {
    compile.extendsFrom plugin
 }
 
-group 'org.javamodularity'
+group 'foundation.polar.gratify'
+version '0.0.1-SNAPSHOT'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+configurations {
+   plugin.description = "Plugin's dependencies"
+   compile.extendsFrom plugin
+}
 
 task createClasspathManifest {
    File outputDir = file("$buildDir/$name")
@@ -38,4 +47,16 @@ task createClasspathManifest {
 // Add the classpath file to the test runtime classpath
 dependencies {
    testRuntimeOnly files(createClasspathManifest)
+}
+
+
+gradlePlugin {
+   plugins {
+      modulesPlugin {
+         id = 'foundation.polar.gratify.javamodule'
+         displayName = 'Java Modularity Gradle Plugin'
+         description = 'Plugin that makes it easy to work with the Java Platform Module System'
+         implementationClass = 'foundation.polar.gratify.javamodule.ModuleSystemPlugin'
+      }
+   }
 }

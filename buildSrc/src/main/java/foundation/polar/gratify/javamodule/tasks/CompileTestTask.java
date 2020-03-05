@@ -3,7 +3,6 @@ package foundation.polar.gratify.javamodule.tasks;
 import foundation.polar.gratify.javamodule.TestEngine;
 import foundation.polar.gratify.javamodule.extensions.CompileTestModuleOptions;
 import foundation.polar.gratify.javamodule.extensions.PatchModuleExtension;
-import foundation.polar.gratify.javamodule.tasks.AbstractModulePluginTask;
 import foundation.polar.gratify.javamodule.utils.ModuleInfoTestHelper;
 import foundation.polar.gratify.javamodule.utils.TaskOption;
 import org.gradle.api.Action;
@@ -62,11 +61,8 @@ public class CompileTestTask extends AbstractModulePluginTask {
       });
 
       moduleOptions.mutateArgs(compilerArgs);
-
       patchModuleExtension.resolvePatched(classpath).mutateArgs(compilerArgs);
-
       ModuleInfoTestHelper.mutateArgs(project, compilerArgs::add);
-
       return compilerArgs;
    }
 }
