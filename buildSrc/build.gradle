@@ -1,6 +1,10 @@
 plugins {
    id 'java-gradle-plugin'
+   id 'com.github.ben-manes.versions' version '0.21.0'
 }
+
+sourceCompatibility = 11
+targetCompatibility = 11
 
 repositories {
    mavenCentral()
@@ -10,4 +14,28 @@ repositories {
 dependencies {
    implementation gradleApi()
    testImplementation gradleTestKit()
+   implementation 'com.github.javaparser:javaparser-core:3.15.14'
+   implementation 'com.github.javaparser:javaparser-symbol-solver-core:3.15.14'
+}
+
+configurations {
+   plugin.description = "Plugin's dependencies"
+   compile.extendsFrom plugin
+}
+
+group 'org.javamodularity'
+
+task createClasspathManifest {
+   File outputDir = file("$buildDir/$name")
+   inputs.files sourceSets.main.runtimeClasspath
+   outputs.dir outputDir
+   doLast {
+      outputDir.mkdirs()
+      file("$outputDir/plugin-classpath.txt").text = sourceSets.main.runtimeClasspath.join('\n')
+   }
+}
+
+// Add the classpath file to the test runtime classpath
+dependencies {
+   testRuntimeOnly files(createClasspathManifest)
 }
