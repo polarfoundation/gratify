@@ -8,7 +8,7 @@ pluginManagement {
 rootProject.name = 'gratify'
 
 include(':gratify-base')
-include(':gratify-beans')
+include(':gratify-artifacts')
 include(':gratify-processor')
 include(':gratify-transport')
 include(':gratify-jdbc')

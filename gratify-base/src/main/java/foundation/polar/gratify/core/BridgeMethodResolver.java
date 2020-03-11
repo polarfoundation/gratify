@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+
 /**
  * Helper for resolving synthetic {@link Method#isBridge bridge Methods} to the
  * {@link Method} being bridged.
@@ -33,7 +34,9 @@ import java.util.Map;
 public final class BridgeMethodResolver {
    private static final Map<Method, Method> cache = new ConcurrentReferenceHashMap<>();
 
-   private BridgeMethodResolver() {}
+   private BridgeMethodResolver() {
+
+   }
 
    /**
     * Find the original method for the supplied {@link Method bridge Method}.
