@@ -10,7 +10,11 @@ module gratify.base {
    requires org.slf4j;
    requires java.annotation;
    requires jopt.simple;
+   requires reactor.core;
+   requires org.reactivestreams;
 
    exports foundation.polar.gratify.utils;
    exports foundation.polar.gratify.buffer;
+   exports foundation.polar.gratify.core;
+   exports foundation.polar.gratify.core.convert;
 }
