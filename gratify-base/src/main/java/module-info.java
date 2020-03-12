@@ -14,7 +14,6 @@ module gratify.base {
    requires org.reactivestreams;
 
    exports foundation.polar.gratify.utils;
-   exports foundation.polar.gratify.buffer;
    exports foundation.polar.gratify.core;
    exports foundation.polar.gratify.core.convert;
 }

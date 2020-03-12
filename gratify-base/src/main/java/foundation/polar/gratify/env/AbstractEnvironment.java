@@ -296,23 +296,6 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
    }
 
    @Override
-   @Deprecated
-   public boolean acceptsProfiles(String... profiles) {
-      AssertUtils.notEmpty(profiles, "Must specify at least one profile");
-      for (String profile : profiles) {
-         if (StringUtils.hasLength(profile) && profile.charAt(0) == '!') {
-            if (!isProfileActive(profile.substring(1))) {
-               return true;
-            }
-         }
-         else if (isProfileActive(profile)) {
-            return true;
-         }
-      }
-      return false;
-   }
-
-   @Override
    public boolean acceptsProfiles(Profiles profiles) {
       AssertUtils.notNull(profiles, "Profiles must not be null");
       return profiles.matches(this::isProfileActive);

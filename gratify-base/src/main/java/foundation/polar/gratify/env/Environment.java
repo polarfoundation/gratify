@@ -46,10 +46,10 @@ package foundation.polar.gratify.env;
  * @see ConfigurableEnvironment
  * @see AbstractEnvironment
  * @see StandardEnvironment
- * @see foundation.polar.gratify.context.EnvironmentAware
- * @see foundation.polar.gratify.context.ConfigurableApplicationContext#getEnvironment
- * @see foundation.polar.gratify.context.ConfigurableApplicationContext#setEnvironment
- * @see foundation.polar.gratify.context.support.AbstractApplicationContext#createEnvironment
+ * @see foundation.polar.gratify.di.EnvironmentAware
+ * @see foundation.polar.gratify.di.ConfigurableApplicationContext#getEnvironment
+ * @see foundation.polar.gratify.di.ConfigurableApplicationContext#setEnvironment
+ * @see foundation.polar.gratify.di.support.AbstractApplicationContext#createEnvironment
  */
 
 public interface Environment extends PropertyResolver {
@@ -76,23 +76,6 @@ public interface Environment extends PropertyResolver {
     * @see AbstractEnvironment#DEFAULT_PROFILES_PROPERTY_NAME
     */
    String[] getDefaultProfiles();
-
-   /**
-    * Return whether one or more of the given profiles is active or, in the case of no
-    * explicit active profiles, whether one or more of the given profiles is included in
-    * the set of default profiles. If a profile begins with '!' the logic is inverted,
-    * i.e. the method will return {@code true} if the given profile is <em>not</em> active.
-    * For example, {@code env.acceptsProfiles("p1", "!p2")} will return {@code true} if
-    * profile 'p1' is active or 'p2' is not active.
-    * @throws IllegalArgumentException if called with zero arguments
-    * or if any profile is {@code null}, empty, or whitespace only
-    * @see #getActiveProfiles
-    * @see #getDefaultProfiles
-    * @see #acceptsProfiles(Profiles)
-    * @deprecated as of 5.1 in favor of {@link #acceptsProfiles(Profiles)}
-    */
-   @Deprecated
-   boolean acceptsProfiles(String... profiles);
 
    /**
     * Return whether the {@linkplain #getActiveProfiles() active profiles}
