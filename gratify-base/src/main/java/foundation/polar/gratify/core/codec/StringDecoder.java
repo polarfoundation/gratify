@@ -6,9 +6,9 @@ import foundation.polar.gratify.utils.AssertUtils;
 import foundation.polar.gratify.utils.MimeType;
 import foundation.polar.gratify.utils.MimeTypeUtils;
 import foundation.polar.gratify.utils.logging.LogFormatUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.reactivestreams.Publisher;
 import reactor.core.publisher.Flux;
-import reactor.util.annotation.Nullable;
 
 import java.nio.CharBuffer;
 import java.nio.charset.Charset;
@@ -33,7 +33,6 @@ import java.util.function.Consumer;
  * @author Brian Clozel
  * @author Arjen Poutsma
  * @author Mark Paluch
- * @since 5.0
  * @see CharSequenceEncoder
  */
 public final class StringDecoder extends AbstractDataBufferDecoder<String> {

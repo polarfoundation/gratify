@@ -4,9 +4,9 @@ import foundation.polar.gratify.core.ResolvableType;
 import foundation.polar.gratify.core.io.buffer.DataBuffer;
 import foundation.polar.gratify.utils.MimeType;
 import foundation.polar.gratify.utils.MimeTypeUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.reactivestreams.Publisher;
 import reactor.core.publisher.Flux;
-import reactor.util.annotation.Nullable;
 
 import java.util.Map;
 
@@ -24,7 +24,6 @@ import java.util.Map;
  *
  * @author Arjen Poutsma
  * @author Rossen Stoyanchev
- * @since 5.0
  */
 public class DataBufferDecoder extends AbstractDataBufferDecoder<DataBuffer> {
 

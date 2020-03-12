@@ -11,10 +11,10 @@ import foundation.polar.gratify.utils.AssertUtils;
 import foundation.polar.gratify.utils.MimeType;
 import foundation.polar.gratify.utils.MimeTypeUtils;
 import foundation.polar.gratify.utils.StreamUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.reactivestreams.Publisher;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import reactor.util.annotation.Nullable;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -25,7 +25,6 @@ import java.util.OptionalLong;
  * Encoder for {@link ResourceRegion ResourceRegions}.
  *
  * @author Brian Clozel
- * @since 5.0
  */
 public class ResourceRegionEncoder extends AbstractEncoder<ResourceRegion> {
 

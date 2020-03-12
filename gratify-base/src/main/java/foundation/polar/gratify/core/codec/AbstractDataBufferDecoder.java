@@ -46,7 +46,6 @@ public abstract class AbstractDataBufferDecoder<T> extends AbstractDecoder<T> {
     * in which case the limit applies to data buffered between delimiters.
     * <p>By default this is set to 256K.
     * @param byteCount the max number of bytes to buffer, or -1 for unlimited
-    * @since 5.1.11
     */
    public void setMaxInMemorySize(int byteCount) {
       this.maxInMemorySize = byteCount;
@@ -54,7 +53,6 @@ public abstract class AbstractDataBufferDecoder<T> extends AbstractDecoder<T> {
 
    /**
     * Return the {@link #setMaxInMemorySize configured} byte count limit.
-    * @since 5.1.11
     */
    public int getMaxInMemorySize() {
       return this.maxInMemorySize;

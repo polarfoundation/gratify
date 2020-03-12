@@ -1,7 +1,7 @@
 package foundation.polar.gratify.core.codec;
 
 
-import reactor.util.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Indicates an issue with encoding the input Object stream with a focus on
