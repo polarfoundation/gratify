@@ -11,7 +11,6 @@ import foundation.polar.gratify.utils.NumberUtils;
  * delegates to {@link NumberUtils#convertNumberToTargetClass(Number, Class)} to perform the conversion.
  *
  * @author Keith Donald
- * @since 3.0
  * @see java.lang.Byte
  * @see java.lang.Short
  * @see java.lang.Integer

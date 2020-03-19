@@ -14,7 +14,6 @@ import java.io.ByteArrayOutputStream;
  *
  * @author Gary Russell
  * @author Mark Fisher
- * @since 3.0.5
  */
 public class SerializingConverter implements Converter<Object, byte[]> {
    private final Serializer<Object> serializer;

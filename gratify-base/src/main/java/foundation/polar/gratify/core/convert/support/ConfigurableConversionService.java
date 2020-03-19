@@ -13,7 +13,6 @@ import foundation.polar.gratify.core.convert.converter.ConverterRegistry;
  * instance in application context bootstrapping code.
  *
  * @author Chris Beams
- * @since 3.1
  * @see foundation.polar.gratify.env.ConfigurablePropertyResolver#getConversionService()
  * @see foundation.polar.gratify.env.ConfigurableEnvironment
  * @see foundation.polar.gratify.context.ConfigurableApplicationContext#getEnvironment()

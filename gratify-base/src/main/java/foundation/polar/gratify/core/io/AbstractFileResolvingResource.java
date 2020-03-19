@@ -158,7 +158,6 @@ public abstract class AbstractFileResolvingResource extends AbstractResource {
    /**
     * This implementation returns a File reference for the given URI-identified
     * resource, provided that it refers to a file in the file system.
-    * @since 5.0
     * @see #getFile(URI)
     */
    protected boolean isFile(URI uri) {
@@ -188,7 +187,6 @@ public abstract class AbstractFileResolvingResource extends AbstractResource {
    /**
     * This implementation returns a FileChannel for the given URI-identified
     * resource, provided that it refers to a file in the file system.
-    * @since 5.0
     * @see #getFile()
     */
    @Override

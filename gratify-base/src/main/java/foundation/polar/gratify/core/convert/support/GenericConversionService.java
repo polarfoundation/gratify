@@ -118,7 +118,6 @@ public class GenericConversionService implements ConfigurableConversionService {
     * @param targetType context about the target type to convert to (required)
     * @return {@code true} if conversion can be bypassed; {@code false} otherwise
     * @throws IllegalArgumentException if targetType is {@code null}
-    * @since 3.2
     */
    public boolean canBypassConvert(@Nullable TypeDescriptor sourceType, TypeDescriptor targetType) {
       AssertUtils.notNull(targetType, "Target type to convert to cannot be null");

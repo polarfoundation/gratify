@@ -11,7 +11,6 @@ import java.util.Properties;
  * Decodes with the ISO-8859-1 charset before returning the String.
  *
  * @author Keith Donald
- * @since 3.0
  */
 final class PropertiesToStringConverter implements Converter<Properties, String> {
 

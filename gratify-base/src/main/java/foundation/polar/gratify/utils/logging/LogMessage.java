@@ -13,7 +13,6 @@ import java.util.function.Supplier;
  * format string ({@link String#format}) in its {@link #toString()}.
  *
  * @author Juergen Hoeller
- * @since 5.2
  * @see #of(Supplier)
  * @see #format(String, Object)
  * @see #format(String, Object...)

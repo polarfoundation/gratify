@@ -8,7 +8,6 @@ import foundation.polar.gratify.core.convert.converter.ConverterFactory;
  *
  * @author Yanming Zhou
  * @author Stephane Nicoll
- * @since 4.3
  */
 @SuppressWarnings({"rawtypes", "unchecked"})
 final class IntegerToEnumConverterFactory implements ConverterFactory<Integer, Enum> {

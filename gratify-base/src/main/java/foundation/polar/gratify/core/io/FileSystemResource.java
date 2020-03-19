@@ -93,7 +93,6 @@ public class FileSystemResource extends AbstractResource implements WritableReso
     * using {@link PathResource#PathResource(Path)} for {@code java.nio.path.Path}
     * resolution in {@code createRelative}, always nesting relative paths.
     * @param filePath a Path handle to a file
-    * @since 5.1
     * @see #FileSystemResource(File)
     */
    public FileSystemResource(Path filePath) {
@@ -110,7 +109,6 @@ public class FileSystemResource extends AbstractResource implements WritableReso
     * performing all file system interactions via NIO.2 instead of {@link File}.
     * @param fileSystem the FileSystem to locate the path within
     * @param path a file path
-    * @since 5.1.1
     * @see #FileSystemResource(File)
     */
    public FileSystemResource(FileSystem fileSystem, String path) {

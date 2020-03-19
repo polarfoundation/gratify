@@ -289,7 +289,6 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
     * Called by {@link #findAllClassPathResources(String)}.
     * @param path the absolute path within the classpath (never a leading slash)
     * @return a mutable Set of matching Resource instances
-    * @since 4.1.1
     */
    protected Set<Resource> doFindAllClassPathResources(String path) throws IOException {
       Set<Resource> result = new LinkedHashSet<>(16);
@@ -324,7 +323,6 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
     * given set of resources in the form of pointers to the root of the jar file content.
     * @param classLoader the ClassLoader to search (including its ancestors)
     * @param result the set of resources to add jar roots to
-    * @since 4.1.1
     */
    protected void addAllClassLoaderJarRoots(@Nullable ClassLoader classLoader, Set<Resource> result) {
       if (classLoader instanceof URLClassLoader) {
@@ -377,7 +375,6 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
     * Determine jar file references from the "java.class.path." manifest property and add them
     * to the given set of resources in the form of pointers to the root of the jar file content.
     * @param result the set of resources to add jar roots to
-    * @since 4.3
     */
    protected void addClassPathManifestEntries(Set<Resource> result) {
       try {
@@ -540,7 +537,6 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
     * @param subPattern the sub pattern to match (below the root directory)
     * @return a mutable Set of matching Resource instances
     * @throws IOException in case of I/O errors
-    * @since 4.3
     * @see java.net.JarURLConnection
     * @see foundation.polar.gratify.utils.PathMatcher
     */
@@ -774,7 +770,6 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
     * Determine a sorted list of files in the given directory.
     * @param dir the directory to introspect
     * @return the sorted list of files (by default in alphabetical order)
-    * @since 5.1
     * @see File#listFiles()
     */
    protected File[] listDirectory(File dir) {

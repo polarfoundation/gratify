@@ -10,7 +10,6 @@ package foundation.polar.gratify.core.io.buffer;
  * parsing with Jackson, SSE parsing and aggregating lines per event.
  *
  * @author Rossen Stoyanchev
- * @since 5.1.11
  */
 @SuppressWarnings("serial")
 public class DataBufferLimitException extends IllegalStateException{

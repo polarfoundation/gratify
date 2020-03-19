@@ -387,7 +387,6 @@ public abstract class ClassUtils {
     * Check whether the given class is loadable in the given ClassLoader.
     * @param clazz the class to check (typically an interface)
     * @param classLoader the ClassLoader to check against
-    * @since 5.0.6
     */
    private static boolean isLoadable(Class<?> clazz, ClassLoader classLoader) {
       try {
@@ -633,7 +632,6 @@ public abstract class ClassUtils {
     * <p>The {@code Collection} must contain {@code Class} elements only.
     * @param collection the {@code Collection} to copy
     * @return the {@code Class} array
-    * @since 3.1
     * @see StringUtils#toStringArray
     */
    public static Class<?>[] toClassArray(Collection<Class<?>> collection) {
@@ -749,7 +747,6 @@ public abstract class ClassUtils {
     * @return the common ancestor (i.e. common superclass, one interface
     * extending the other), or {@code null} if none found. If any of the
     * given classes is {@code null}, the other class will be returned.
-    * @since 3.2.6
     */
    @Nullable
    public static Class<?> determineCommonAncestor(@Nullable Class<?> clazz1, @Nullable Class<?> clazz2) {
@@ -783,7 +780,6 @@ public abstract class ClassUtils {
     * for 'primary' user-level interfaces. Common characteristics: no service-level
     * operations, no bean property methods, no default methods.
     * @param ifc the interface to check
-    * @since 5.0.3
     */
    public static boolean isJavaLanguageInterface(Class<?> ifc) {
       return javaLanguageInterfaces.contains(ifc);
@@ -793,7 +789,6 @@ public abstract class ClassUtils {
     * Determine if the supplied class is an <em>inner class</em>,
     * i.e. a non-static member of an enclosing class.
     * @return {@code true} if the supplied class is an inner class
-    * @since 5.0.5
     * @see Class#isMemberClass()
     */
    public static boolean isInnerClass(Class<?> clazz) {
@@ -971,7 +966,6 @@ public abstract class ClassUtils {
     * @param clazz the clazz that the method is being invoked on
     * (may be {@code null} to indicate the method's declaring class)
     * @return the qualified name of the method
-    * @since 4.3.4
     */
    public static String getQualifiedMethodName(Method method, @Nullable Class<?> clazz) {
       AssertUtils.notNull(method, "Method must not be null");
@@ -1015,7 +1009,6 @@ public abstract class ClassUtils {
     * @param clazz the clazz to analyze
     * @param method the method to look for
     * @return whether the class has a corresponding method
-    * @since 5.2.3
     */
    public static boolean hasMethod(Class<?> clazz, Method method) {
       AssertUtils.notNull(clazz, "Class must not be null");

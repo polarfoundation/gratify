@@ -28,7 +28,6 @@ import static java.util.Objects.requireNonNull;
  * @author Arjen Poutsma
  * @author Sam Brannen
  * @author Brian Clozel
- * @since 16 April 2001
  */
 public class StringUtils {
 

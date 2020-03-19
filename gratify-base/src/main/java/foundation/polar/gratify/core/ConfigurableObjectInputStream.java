@@ -9,7 +9,6 @@ import java.io.*;
  * against a specific ClassLoader. Serves as base class for
  *
  * @author Juergen Hoeller
- * @since 2.5.5
  */
 public class ConfigurableObjectInputStream extends ObjectInputStream {
 

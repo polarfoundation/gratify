@@ -19,7 +19,6 @@ public interface ConverterRegistry {
     * The convertible source/target type pair is specified explicitly.
     * <p>Allows for a Converter to be reused for multiple distinct pairs without
     * having to create a Converter class for each pair.
-    * @since 3.1
     */
    <S, T> void addConverter(Class<S> sourceType, Class<T> targetType, Converter<? super S, ? extends T> converter);
 

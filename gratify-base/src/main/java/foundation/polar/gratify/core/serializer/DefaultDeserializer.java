@@ -13,7 +13,6 @@ import java.io.ObjectInputStream;
  *
  * @author Gary Russell
  * @author Mark Fisher
- * @since 3.0.5
  */
 public class DefaultDeserializer implements Deserializer<Object> {
    private final ClassLoader classLoader;
@@ -29,7 +28,6 @@ public class DefaultDeserializer implements Deserializer<Object> {
    /**
     * Create a {@code DefaultDeserializer} for using an {@link ObjectInputStream}
     * with the given {@code ClassLoader}.
-    * @since 4.2.1
     * @see ConfigurableObjectInputStream#ConfigurableObjectInputStream(InputStream, ClassLoader)
     */
    public DefaultDeserializer(ClassLoader classLoader) {

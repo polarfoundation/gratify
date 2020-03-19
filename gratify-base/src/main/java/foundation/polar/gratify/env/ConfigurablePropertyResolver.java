@@ -65,7 +65,6 @@ public interface ConfigurablePropertyResolver extends PropertyResolver {
     * <p>Implementations of {@link #getProperty(String)} and its variants must inspect
     * the value set here to determine correct behavior when property values contain
     * unresolvable placeholders.
-    * @since 3.2
     */
    void setIgnoreUnresolvableNestedPlaceholders(boolean ignoreUnresolvableNestedPlaceholders);
 

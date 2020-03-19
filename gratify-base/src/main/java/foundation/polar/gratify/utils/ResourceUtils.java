@@ -12,18 +12,17 @@ import java.net.*;
  *
  * <p>Consider using Spring's Resource abstraction in the core package
  * for handling all kinds of file resources in a uniform manner.
- * {@link foundation.polar.gratify.io.ResourceLoader}'s {@code getResource()}
- * method can resolve any location to a {@link foundation.polar.gratify.io.Resource}
+ * {@link foundation.polar.gratify.core.io.ResourceLoader}'s {@code getResource()}
+ * method can resolve any location to a {@link foundation.polar.gratify.core.io.Resource}
  * object, which in turn allows one to obtain a {@code java.io.File} in the
  * file system through its {@code getFile()} method.
  *
  * @author Juergen Hoeller
- * @since 1.1.5
- * @see foundation.polar.gratify.io.Resource
+ * @see foundation.polar.gratify.core.io.Resource
  * @see foundation.polar.gratify.io.ClassPathResource
  * @see foundation.polar.gratify.io.FileSystemResource
  * @see foundation.polar.gratify.io.UrlResource
- * @see foundation.polar.gratify.io.ResourceLoader
+ * @see foundation.polar.gratify.core.io.ResourceLoader
  */
 public abstract class ResourceUtils {
    /** Pseudo URL prefix for loading from the class path: "classpath:". */
@@ -213,7 +212,6 @@ public abstract class ResourceUtils {
     * @return a corresponding File object
     * @throws FileNotFoundException if the URL cannot be resolved to
     * a file in the file system
-    * @since 2.5
     */
    public static File getFile(URI resourceUri) throws FileNotFoundException {
       return getFile(resourceUri, "URI");
@@ -228,7 +226,6 @@ public abstract class ResourceUtils {
     * @return a corresponding File object
     * @throws FileNotFoundException if the URL cannot be resolved to
     * a file in the file system
-    * @since 2.5
     */
    public static File getFile(URI resourceUri, String description) throws FileNotFoundException {
       AssertUtils.notNull(resourceUri, "Resource URI must not be null");
@@ -270,7 +267,6 @@ public abstract class ResourceUtils {
     * that is, has protocol "file" and ends with the ".jar" extension.
     * @param url the URL to check
     * @return whether the URL has been identified as a JAR file URL
-    * @since 4.1
     */
    public static boolean isJarFileURL(URL url) {
       return (URL_PROTOCOL_FILE.equals(url.getProtocol()) &&
@@ -314,7 +310,6 @@ public abstract class ResourceUtils {
     * @param jarUrl the original URL
     * @return the URL for the actual jar file
     * @throws MalformedURLException if no valid jar file URL could be extracted
-    * @since 4.1.8
     * @see #extractJarFileURL(URL)
     */
    public static URL extractArchiveURL(URL jarUrl) throws MalformedURLException {

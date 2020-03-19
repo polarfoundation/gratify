@@ -8,7 +8,6 @@ import java.io.OutputStream;
  *
  * @author Gary Russell
  * @author Mark Fisher
- * @since 3.0.5
  * @param <T> the object type
  */
 @FunctionalInterface

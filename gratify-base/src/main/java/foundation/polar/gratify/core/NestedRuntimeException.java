@@ -60,7 +60,6 @@ public abstract class NestedRuntimeException extends RuntimeException {
    /**
     * Retrieve the innermost cause of this exception, if any.
     * @return the innermost exception, or {@code null} if none
-    * @since 2.0
     */
    @Nullable
    public Throwable getRootCause() {
@@ -73,7 +72,6 @@ public abstract class NestedRuntimeException extends RuntimeException {
     * <p>Differs from {@link #getRootCause()} in that it falls back
     * to the present exception if there is no root cause.
     * @return the most specific cause (never {@code null})
-    * @since 2.0.3
     */
    public Throwable getMostSpecificCause() {
       Throwable rootCause = getRootCause();

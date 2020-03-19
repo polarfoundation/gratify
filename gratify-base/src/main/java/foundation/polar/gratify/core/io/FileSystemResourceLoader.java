@@ -11,7 +11,6 @@ package foundation.polar.gratify.core.io;
  * <b>Use an explicit "file:" prefix to enforce an absolute file path.</b>
  *
  * @author Juergen Hoeller
- * @since 1.1.3
  * @see DefaultResourceLoader
  */
 public class FileSystemResourceLoader extends DefaultResourceLoader {

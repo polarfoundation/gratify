@@ -127,7 +127,6 @@ public final class GenericTypeResolver {
     * @param contextClass a context class for the target type, for example a class
     * in which the target type appears in a method signature (can be {@code null})
     * @return the resolved type (possibly the given generic type as-is)
-    * @since 5.0
     */
    public static Type resolveType(Type genericType, @Nullable Class<?> contextClass) {
       if (contextClass != null) {

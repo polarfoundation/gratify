@@ -7,7 +7,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * Used by {@link foundation.polar.gratify.beans.factory.config.ConfigurableBeanFactory}.
  *
  * @author Juergen Hoeller
- * @since 2.5
  * @see foundation.polar.gratify.beans.factory.config.ConfigurableBeanFactory#resolveAliases
  * @see foundation.polar.gratify.beans.factory.config.BeanDefinitionVisitor#BeanDefinitionVisitor(StringValueResolver)
  * @see foundation.polar.gratify.beans.factory.config.PropertyPlaceholderConfigurer

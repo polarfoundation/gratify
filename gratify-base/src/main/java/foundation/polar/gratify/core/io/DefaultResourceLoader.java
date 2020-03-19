@@ -83,7 +83,6 @@ public class DefaultResourceLoader implements ResourceLoader {
     * additional protocols to be handled.
     * <p>Any such resolver will be invoked ahead of this loader's standard
     * resolution rules. It may therefore also override any default rules.
-    * @since 4.3
     * @see #getProtocolResolvers()
     */
    public void addProtocolResolver(ProtocolResolver resolver) {
@@ -94,7 +93,6 @@ public class DefaultResourceLoader implements ResourceLoader {
    /**
     * Return the collection of currently registered protocol resolvers,
     * allowing for introspection as well as modification.
-    * @since 4.3
     */
    public Collection<ProtocolResolver> getProtocolResolvers() {
       return this.protocolResolvers;
@@ -104,7 +102,6 @@ public class DefaultResourceLoader implements ResourceLoader {
     * Obtain a cache for the given value type, keyed by {@link Resource}.
     * @param valueType the value type, e.g. an ASM {@code MetadataReader}
     * @return the cache {@link Map}, shared at the {@code ResourceLoader} level
-    * @since 5.0
     */
    @SuppressWarnings("unchecked")
    public <T> Map<Resource, T> getResourceCache(Class<T> valueType) {
@@ -113,7 +110,6 @@ public class DefaultResourceLoader implements ResourceLoader {
 
    /**
     * Clear all resource caches in this resource loader.
-    * @since 5.0
     * @see #getResourceCache
     */
    public void clearResourceCaches() {

@@ -42,7 +42,6 @@ import java.util.Map;
  *
  * @author Chris Beams
  * @author Juergen Hoeller
- * @since 3.1
  * @see StandardEnvironment
  * @see AbstractEnvironment#getSystemEnvironment()
  * @see AbstractEnvironment#ACTIVE_PROFILES_PROPERTY_NAME

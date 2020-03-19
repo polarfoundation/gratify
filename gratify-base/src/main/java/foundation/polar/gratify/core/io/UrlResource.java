@@ -215,7 +215,6 @@ public class UrlResource extends AbstractFileResolvingResource {
     * This delegate creates a {@code java.net.URL}, applying the given path
     * relative to the path of the underlying URL of this resource descriptor.
     * A leading slash will get dropped; a "#" symbol will get encoded.
-    * @since 5.2
     * @see #createRelative(String)
     * @see java.net.URL#URL(java.net.URL, String)
     */

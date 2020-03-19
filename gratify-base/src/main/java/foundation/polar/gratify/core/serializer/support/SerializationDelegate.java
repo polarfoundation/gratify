@@ -16,7 +16,6 @@ import java.io.OutputStream;
  * itself, so can also be passed into such more specific callback methods.
  *
  * @author Juergen Hoeller
- * @since 4.3
  */
 public class SerializationDelegate implements Serializer<Object>, Deserializer<Object> {
 

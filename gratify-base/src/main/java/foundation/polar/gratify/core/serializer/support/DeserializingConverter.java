@@ -15,7 +15,6 @@ import java.io.ByteArrayInputStream;
  * @author Gary Russell
  * @author Mark Fisher
  * @author Juergen Hoeller
- * @since 3.0.5
  */
 public class DeserializingConverter implements Converter<byte[], Object> {
    private final Deserializer<Object> deserializer;
@@ -32,7 +31,6 @@ public class DeserializingConverter implements Converter<byte[], Object> {
    /**
     * Create a {@code DeserializingConverter} for using an {@link java.io.ObjectInputStream}
     * with the given {@code ClassLoader}.
-    * @since 4.2.1
     * @see DefaultDeserializer#DefaultDeserializer(ClassLoader)
     */
    public DeserializingConverter(ClassLoader classLoader) {

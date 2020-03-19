@@ -10,7 +10,6 @@ import foundation.polar.gratify.core.NestedRuntimeException;
  *
  * @author Gary Russell
  * @author Juergen Hoeller
- * @since 3.0.5
  */
 @SuppressWarnings("serial")
 public class SerializationFailedException extends NestedRuntimeException {

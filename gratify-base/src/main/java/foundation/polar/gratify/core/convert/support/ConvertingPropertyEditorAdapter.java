@@ -12,7 +12,6 @@ import java.beans.PropertyEditorSupport;
  * {@link foundation.polar.gratify.core.convert.ConversionService} and specific target type.
  *
  * @author Juergen Hoeller
- * @since 3.0
  */
 public class ConvertingPropertyEditorAdapter extends PropertyEditorSupport {
 

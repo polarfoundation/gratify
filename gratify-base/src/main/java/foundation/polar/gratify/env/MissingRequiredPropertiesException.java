@@ -7,7 +7,6 @@ import java.util.Set;
  * Exception thrown when required properties are not found.
  *
  * @author Chris Beams
- * @since 3.1
  * @see ConfigurablePropertyResolver#setRequiredProperties(String...)
  * @see ConfigurablePropertyResolver#validateRequiredProperties()
  * @see foundation.polar.gratify.context.support.AbstractApplicationContext#prepareRefresh()

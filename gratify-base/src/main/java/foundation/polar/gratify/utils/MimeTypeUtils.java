@@ -259,7 +259,6 @@ public abstract class MimeTypeUtils {
     * method takes into account quoted parameters.
     * @param mimeTypes the string to tokenize
     * @return the list of tokens
-    * @since 5.1.3
     */
    public static List<String> tokenize(String mimeTypes) {
       if (!StringUtils.hasLength(mimeTypes)) {

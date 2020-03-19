@@ -127,7 +127,6 @@ public class MethodParameter {
     * @param executable the Executable to specify a parameter for
     * @param parameterIndex the index of the parameter
     * @param containingClass the containing class
-    * @since 5.2
     */
    MethodParameter(Executable executable, int parameterIndex, @Nullable Class<?> containingClass) {
       AssertUtils.notNull(executable, "Executable must not be null");
@@ -206,7 +205,6 @@ public class MethodParameter {
    /**
     * Return the wrapped executable.
     * @return the Method or Constructor as Executable
-    * @since 5.0
     */
    public Executable getExecutable() {
       return this.executable;
@@ -214,7 +212,6 @@ public class MethodParameter {
 
    /**
     * Return the {@link Parameter} descriptor for method/constructor parameter.
-    * @since 5.0
     */
    public Parameter getParameter() {
       if (this.parameterIndex < 0) {
@@ -756,7 +753,6 @@ public class MethodParameter {
     * Java 8 {@link Parameter} descriptor is already available.
     * @param parameter the parameter descriptor
     * @return the corresponding MethodParameter instance
-    * @since 5.0
     */
    public static MethodParameter forParameter(Parameter parameter) {
       return forExecutable(parameter.getDeclaringExecutable(), findParameterIndex(parameter));

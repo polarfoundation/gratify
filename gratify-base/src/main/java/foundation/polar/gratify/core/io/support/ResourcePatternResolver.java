@@ -29,7 +29,6 @@ import java.io.IOException;
  * JAR files or classes directories can contain multiple files of the same name.
  *
  * @author Juergen Hoeller
- * @since 1.0.2
  * @see foundation.polar.gratify.core.io.Resource
  * @see foundation.polar.gratify.core.io.ResourceLoader
  * @see foundation.polar.gratify.di.ApplicationContext
