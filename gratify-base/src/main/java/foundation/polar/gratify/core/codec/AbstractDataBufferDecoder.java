@@ -73,17 +73,4 @@ public abstract class AbstractDataBufferDecoder<T> extends AbstractDecoder<T> {
          .map(buffer -> decodeDataBuffer(buffer, elementType, mimeType, hints));
    }
 
-   /**
-    * How to decode a {@code DataBuffer} to the target element type.
-    * @deprecated as of 5.2, please implement
-    * {@link #decode(DataBuffer, ResolvableType, MimeType, Map)} instead
-    */
-   @Deprecated
-   @Nullable
-   protected T decodeDataBuffer(DataBuffer buffer, ResolvableType elementType,
-                                @Nullable MimeType mimeType, @Nullable Map<String, Object> hints) {
-
-      return decode(buffer, elementType, mimeType, hints);
-   }
-
 }

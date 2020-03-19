@@ -34,42 +34,6 @@ public class StandardAnnotationMetadata extends StandardClassMetadata implements
    @Nullable
    private Set<String> annotationTypes;
 
-
-   /**
-    * Create a new {@code StandardAnnotationMetadata} wrapper for the given Class.
-    * @param introspectedClass the Class to introspect
-    * @see #StandardAnnotationMetadata(Class, boolean)
-    * @deprecated since 5.2 in favor of the factory method {@link AnnotationMetadata#introspect(Class)}
-    */
-   @Deprecated
-   public StandardAnnotationMetadata(Class<?> introspectedClass) {
-      this(introspectedClass, false);
-   }
-
-   /**
-    * Create a new {@link StandardAnnotationMetadata} wrapper for the given Class,
-    * providing the option to return any nested annotations or annotation arrays in the
-    * form of {@link foundation.polar.gratify.annotation.AnnotationAttributes} instead
-    * of actual {@link Annotation} instances.
-    * @param introspectedClass the Class to introspect
-    * @param nestedAnnotationsAsMap return nested annotations and annotation arrays as
-    * {@link foundation.polar.gratify.annotation.AnnotationAttributes} for compatibility
-    * with ASM-based {@link AnnotationMetadata} implementations
-    * @deprecated since 5.2 in favor of the factory method {@link AnnotationMetadata#introspect(Class)}.
-    * Use {@link MergedAnnotation#asMap(foundation.polar.gratify.annotation.MergedAnnotation.Adapt...) MergedAnnotation.asMap}
-    * from {@link #getAnnotations()} rather than {@link #getAnnotationAttributes(String)}
-    * if {@code nestedAnnotationsAsMap} is {@code false}
-    */
-   @Deprecated
-   public StandardAnnotationMetadata(Class<?> introspectedClass, boolean nestedAnnotationsAsMap) {
-      super(introspectedClass);
-      this.mergedAnnotations = MergedAnnotations.from(introspectedClass,
-         SearchStrategy.INHERITED_ANNOTATIONS, RepeatableContainers.none(),
-         AnnotationFilter.NONE);
-      this.nestedAnnotationsAsMap = nestedAnnotationsAsMap;
-   }
-
-
    @Override
    public MergedAnnotations getAnnotations() {
       return this.mergedAnnotations;

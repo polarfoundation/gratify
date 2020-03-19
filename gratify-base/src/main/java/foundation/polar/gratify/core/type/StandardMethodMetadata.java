@@ -30,17 +30,6 @@ public class StandardMethodMetadata implements MethodMetadata {
 
    private final MergedAnnotations mergedAnnotations;
 
-
-   /**
-    * Create a new StandardMethodMetadata wrapper for the given Method.
-    * @param introspectedMethod the Method to introspect
-    * @deprecated since 5.2 in favor of obtaining instances via {@link AnnotationMetadata}
-    */
-   @Deprecated
-   public StandardMethodMetadata(Method introspectedMethod) {
-      this(introspectedMethod, false);
-   }
-
    /**
     * Create a new StandardMethodMetadata wrapper for the given Method,
     * providing the option to return any nested annotations or annotation arrays in the

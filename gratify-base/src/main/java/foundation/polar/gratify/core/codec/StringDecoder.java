@@ -183,17 +183,6 @@ public final class StringDecoder extends AbstractDataBufferDecoder<String> {
 
    /**
     * Create a {@code StringDecoder} for {@code "text/plain"}.
-    * @param ignored ignored
-    * @deprecated as of Spring 5.0.4, in favor of {@link #textPlainOnly()} or
-    * {@link #textPlainOnly(List, boolean)}
-    */
-   @Deprecated
-   public static StringDecoder textPlainOnly(boolean ignored) {
-      return textPlainOnly();
-   }
-
-   /**
-    * Create a {@code StringDecoder} for {@code "text/plain"}.
     */
    public static StringDecoder textPlainOnly() {
       return textPlainOnly(DEFAULT_DELIMITERS, true);
@@ -207,17 +196,6 @@ public final class StringDecoder extends AbstractDataBufferDecoder<String> {
     */
    public static StringDecoder textPlainOnly(List<String> delimiters, boolean stripDelimiter) {
       return new StringDecoder(delimiters, stripDelimiter, new MimeType("text", "plain", DEFAULT_CHARSET));
-   }
-
-   /**
-    * Create a {@code StringDecoder} that supports all MIME types.
-    * @param ignored ignored
-    * @deprecated as of Spring 5.0.4, in favor of {@link #allMimeTypes()} or
-    * {@link #allMimeTypes(List, boolean)}
-    */
-   @Deprecated
-   public static StringDecoder allMimeTypes(boolean ignored) {
-      return allMimeTypes();
    }
 
    /**
