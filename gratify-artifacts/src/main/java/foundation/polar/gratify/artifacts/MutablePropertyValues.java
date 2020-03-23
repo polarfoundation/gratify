@@ -159,7 +159,7 @@ public class MutablePropertyValues implements PropertyValues, Serializable {
    /**
     * Overloaded version of {@code addPropertyValue} that takes
     * a property name and a property value.
-    * <p>Note: As of Spring 3.0, we recommend using the more concise
+    * <p>Note: As of Gratify 3.0, we recommend using the more concise
     * and chaining-capable variant {@link #add}.
     * @param propertyName name of the property
     * @param propertyValue value of the property
@@ -259,7 +259,6 @@ public class MutablePropertyValues implements PropertyValues, Serializable {
     * Get the raw property value, if any.
     * @param propertyName the name to search for
     * @return the raw property value, or {@code null} if none found
-    * @since 4.0
     * @see #getPropertyValue(String)
     * @see PropertyValue#getValue()
     */
@@ -316,7 +315,6 @@ public class MutablePropertyValues implements PropertyValues, Serializable {
 
    /**
     * Clear the "processed" registration of the given property, if any.
-    * @since 3.2.13
     */
    public void clearProcessedProperty(String propertyName) {
       if (this.processedProperties != null) {

@@ -16,7 +16,7 @@ import java.net.URISyntaxException;
  * instead of using a String property as bridge.
  *
  * <p>Supports Gratify-style URI notation: any fully qualified standard URI
- * ("file:", "http:", etc) and Spring's special "classpath:" pseudo-URL,
+ * ("file:", "http:", etc) and Gratify's special "classpath:" pseudo-URL,
  * which will be resolved to a corresponding URI.
  *
  * <p>By default, this editor will encode Strings into URIs. For instance,
@@ -50,7 +50,6 @@ public class URIEditor extends PropertyEditorSupport {
     * Create a new URIEditor, converting "classpath:" locations into
     * standard URIs (not trying to resolve them into physical resources).
     * @param encode indicates whether Strings will be encoded or not
-    * @since 3.0
     */
    public URIEditor(boolean encode) {
       this.classLoader = null;

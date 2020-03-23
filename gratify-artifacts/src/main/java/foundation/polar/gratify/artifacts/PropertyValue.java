@@ -100,7 +100,7 @@ public class PropertyValue extends ArtifactMetadataAttributeAccessor implements 
    /**
     * Return the value of the property.
     * <p>Note that type conversion will <i>not</i> have occurred here.
-    * It is the responsibility of the BeanWrapper implementation to
+    * It is the responsibility of the ArtifactWrapper implementation to
     * perform type conversion.
     */
    @Nullable

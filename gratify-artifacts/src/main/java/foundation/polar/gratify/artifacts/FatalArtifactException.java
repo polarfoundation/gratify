@@ -11,7 +11,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 @SuppressWarnings("serial")
 public class FatalArtifactException extends ArtifactsException {
    /**
-    * Create a new FatalBeanException with the specified message.
+    * Create a new FatalArtifactException with the specified message.
     * @param msg the detail message
     */
    public FatalArtifactException(String msg) {
@@ -19,7 +19,7 @@ public class FatalArtifactException extends ArtifactsException {
    }
 
    /**
-    * Create a new FatalBeanException with the specified message
+    * Create a new FatalArtifactException with the specified message
     * and root cause.
     * @param msg the detail message
     * @param cause the root cause

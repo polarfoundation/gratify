@@ -18,7 +18,6 @@ import java.util.*;
  * target types if the type does not match the target property.
  *
  * @author Juergen Hoeller
- * @since 1.1.3
  * @see java.util.Collection
  * @see java.util.Set
  * @see java.util.SortedSet

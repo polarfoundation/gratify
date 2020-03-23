@@ -8,17 +8,16 @@ package foundation.polar.gratify.artifacts;
  * @author Juergen Hoeller
  */
 public class PropertyAccessorFactory {
-   private PropertyAccessorFactory() {
-   }
+   private PropertyAccessorFactory() {}
 
    /**
-    * Obtain a BeanWrapper for the given target object,
+    * Obtain a ArtifactWrapper for the given target object,
     * accessing properties in JavaBeans style.
     * @param target the target object to wrap
     * @return the property accessor
     * @see ArtifactWrapperImpl
     */
-   public static ArtifactWrapper forBeanPropertyAccess(Object target) {
+   public static ArtifactWrapper forArtifactPropertyAccess(Object target) {
       return new ArtifactWrapperImpl(target);
    }
 

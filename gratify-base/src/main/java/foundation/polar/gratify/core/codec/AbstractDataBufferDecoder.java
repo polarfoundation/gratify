@@ -73,4 +73,11 @@ public abstract class AbstractDataBufferDecoder<T> extends AbstractDecoder<T> {
          .map(buffer -> decodeDataBuffer(buffer, elementType, mimeType, hints));
    }
 
+   @Nullable
+   private T decodeDataBuffer(DataBuffer buffer, ResolvableType elementType,
+                                @Nullable MimeType mimeType, @Nullable Map<String, Object> hints) {
+
+      return decode(buffer, elementType, mimeType, hints);
+   }
+
 }

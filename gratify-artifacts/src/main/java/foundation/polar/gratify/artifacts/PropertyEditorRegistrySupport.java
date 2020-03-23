@@ -181,7 +181,7 @@ public class PropertyEditorRegistrySupport implements PropertyEditorRegistry {
       this.defaultEditors.put(char.class, new CharacterEditor(false));
       this.defaultEditors.put(Character.class, new CharacterEditor(true));
 
-      // Spring's CustomBooleanEditor accepts more flag values than the JDK's default editor.
+      // Gratify's CustomBooleanEditor accepts more flag values than the JDK's default editor.
       this.defaultEditors.put(boolean.class, new CustomBooleanEditor(false));
       this.defaultEditors.put(Boolean.class, new CustomBooleanEditor(true));
 

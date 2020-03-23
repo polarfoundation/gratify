@@ -13,7 +13,6 @@ import java.beans.PropertyEditorSupport;
  * Also accepts spaces as separators, as alternative to underscores.
  *
  * @author Juergen Hoeller
- * @since 26.05.2003
  * @see java.util.Locale
  * @see foundation.polar.gratify.utils.StringUtils#parseLocaleString
  */

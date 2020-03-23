@@ -15,23 +15,22 @@ import java.security.*;
  * for all typical use cases. Caches introspection results for efficiency.
  *
  * <p>Note: Auto-registers default property editors from the
- * {@code org.springframework.beans.propertyeditors} package, which apply
+ * {@codefoundation.polar.gratify.artifacts.propertyeditors} package, which apply
  * in addition to the JDK's standard PropertyEditors. Applications can call
  * the {@link #registerCustomEditor(Class, java.beans.PropertyEditor)} method
  * to register an editor for a particular instance (i.e. they are not shared
  * across the application). See the base class
  * {@link PropertyEditorRegistrySupport} for details.
  *
- * <p><b>NOTE: As of Spring 2.5, this is - for almost all purposes - an
+ * <p><b>NOTE: As of Gratify 2.5, this is - for almost all purposes - an
  * internal class.</b> It is just public in order to allow for access from
  * other framework packages. For standard application access purposes, use the
- * {@link PropertyAccessorFactory#forBeanPropertyAccess} factory method instead.
+ * {@link PropertyAccessorFactory#forArtifactPropertyAccess} factory method instead.
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
  * @author Rob Harrop
  * @author Stephane Nicoll
- * @since 15 April 2001
  * @see #registerCustomEditor
  * @see #setPropertyValues
  * @see #setPropertyValue
@@ -116,10 +115,10 @@ public class ArtifactWrapperImpl extends AbstractNestablePropertyAccessor implem
    /**
     * Set a bean instance to hold, without any unwrapping of {@link java.util.Optional}.
     * @param object the actual target object
-    * @since 4.3
+    *
     * @see #setWrappedInstance(Object)
     */
-   public void setBeanInstance(Object object) {
+   public void setArtifactInstance(Object object) {
       this.wrappedObject = object;
       this.rootObject = object;
       this.typeConverterDelegate = new TypeConverterDelegate(this, this.wrappedObject);
@@ -138,7 +137,7 @@ public class ArtifactWrapperImpl extends AbstractNestablePropertyAccessor implem
     * @param clazz the class to introspect
     */
    protected void setIntrospectionClass(Class<?> clazz) {
-      if (this.cachedIntrospectionResults != null && this.cachedIntrospectionResults.getBeanClass() != clazz) {
+      if (this.cachedIntrospectionResults != null && this.cachedIntrospectionResults.getArtifactClass() != clazz) {
          this.cachedIntrospectionResults = null;
       }
    }
@@ -173,7 +172,7 @@ public class ArtifactWrapperImpl extends AbstractNestablePropertyAccessor implem
 
    /**
     * Convert the given value for the specified property to the latter's type.
-    * <p>This method is only intended for optimizations in a BeanFactory.
+    * <p>This method is only intended for optimizations in a ArtifactFactory.
     * Use the {@code convertIfNecessary} methods for programmatic conversion.
     * @param value the value to convert
     * @param propertyName the target property
@@ -198,14 +197,14 @@ public class ArtifactWrapperImpl extends AbstractNestablePropertyAccessor implem
 
    private Property property(PropertyDescriptor pd) {
       GenericTypeAwarePropertyDescriptor gpd = (GenericTypeAwarePropertyDescriptor) pd;
-      return new Property(gpd.getBeanClass(), gpd.getReadMethod(), gpd.getWriteMethod(), gpd.getName());
+      return new Property(gpd.getArtifactClass(), gpd.getReadMethod(), gpd.getWriteMethod(), gpd.getName());
    }
 
    @Override
    @Nullable
-   protected BeanPropertyHandler getLocalPropertyHandler(String propertyName) {
+   protected ArtifactPropertyHandler getLocalPropertyHandler(String propertyName) {
       PropertyDescriptor pd = getCachedIntrospectionResults().getPropertyDescriptor(propertyName);
-      return (pd != null ? new BeanPropertyHandler(pd) : null);
+      return (pd != null ? new ArtifactPropertyHandler(pd) : null);
    }
 
    @Override
@@ -237,11 +236,11 @@ public class ArtifactWrapperImpl extends AbstractNestablePropertyAccessor implem
       return pd;
    }
 
-   private class BeanPropertyHandler extends PropertyHandler {
+   private class ArtifactPropertyHandler extends PropertyHandler {
 
       private final PropertyDescriptor pd;
 
-      public BeanPropertyHandler(PropertyDescriptor pd) {
+      public ArtifactPropertyHandler(PropertyDescriptor pd) {
          super(pd.getPropertyType(), pd.getReadMethod() != null, pd.getWriteMethod() != null);
          this.pd = pd;
       }

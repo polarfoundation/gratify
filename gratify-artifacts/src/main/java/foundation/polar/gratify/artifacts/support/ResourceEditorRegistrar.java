@@ -25,14 +25,13 @@ import java.nio.file.Path;
 /**
  * PropertyEditorRegistrar implementation that populates a given
  * {@link foundation.polar.gratify.artifacts.PropertyEditorRegistry}
- * (typically a {@link foundation.polar.gratify.artifacts.BeanWrapper} used for bean
+ * (typically a {@link foundation.polar.gratify.artifacts.ArtifactWrapper} used for bean
  * creation within an {@link foundation.polar.gratify.context.ApplicationContext})
  * with resource editors. Used by
  * {@link foundation.polar.gratify.di.support.AbstractApplicationContext}.
  *
  * @author Juergen Hoeller
  * @author Chris Beams
- * @since 2.0
  */
 public class ResourceEditorRegistrar implements PropertyEditorRegistrar {
 

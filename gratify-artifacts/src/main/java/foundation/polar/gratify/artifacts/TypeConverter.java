@@ -16,13 +16,13 @@ import java.lang.reflect.Field;
  *
  * @author Juergen Hoeller
  * @see SimpleTypeConverter
- * @see BeanWrapperImpl
+ * @see ArtifactWrapperImpl
  */
 public interface TypeConverter {
    /**
     * Convert the value to the required type (if necessary from a String).
     * <p>Conversions from String to any type will typically use the {@code setAsText}
-    * method of the PropertyEditor class, or a Spring Converter in a ConversionService.
+    * method of the PropertyEditor class, or a Gratify Converter in a ConversionService.
     * @param value the value to convert
     * @param requiredType the type we must convert to
     * (or {@code null} if not known, for example in case of a collection element)
@@ -39,7 +39,7 @@ public interface TypeConverter {
    /**
     * Convert the value to the required type (if necessary from a String).
     * <p>Conversions from String to any type will typically use the {@code setAsText}
-    * method of the PropertyEditor class, or a Spring Converter in a ConversionService.
+    * method of the PropertyEditor class, or a Gratify Converter in a ConversionService.
     * @param value the value to convert
     * @param requiredType the type we must convert to
     * (or {@code null} if not known, for example in case of a collection element)
@@ -59,7 +59,7 @@ public interface TypeConverter {
    /**
     * Convert the value to the required type (if necessary from a String).
     * <p>Conversions from String to any type will typically use the {@code setAsText}
-    * method of the PropertyEditor class, or a Spring Converter in a ConversionService.
+    * method of the PropertyEditor class, or a Gratify Converter in a ConversionService.
     * @param value the value to convert
     * @param requiredType the type we must convert to
     * (or {@code null} if not known, for example in case of a collection element)
@@ -79,7 +79,7 @@ public interface TypeConverter {
    /**
     * Convert the value to the required type (if necessary from a String).
     * <p>Conversions from String to any type will typically use the {@code setAsText}
-    * method of the PropertyEditor class, or a Spring Converter in a ConversionService.
+    * method of the PropertyEditor class, or a Gratify Converter in a ConversionService.
     * @param value the value to convert
     * @param requiredType the type we must convert to
     * (or {@code null} if not known, for example in case of a collection element)

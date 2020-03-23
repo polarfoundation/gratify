@@ -7,11 +7,11 @@ import java.util.Map;
 /**
  * Common interface for classes that can access named properties
  * (such as bean properties of an object or fields in an object)
- * Serves as base interface for {@link BeanWrapper}.
+ * Serves as base interface for {@link ArtifactWrapper}.
  *
  * @author Juergen Hoeller
- * @see BeanWrapper
- * @see PropertyAccessorFactory#forBeanPropertyAccess
+ * @see ArtifactWrapper
+ * @see PropertyAccessorFactory#forArtifactPropertyAccess
  * @see PropertyAccessorFactory#forDirectFieldAccess
  */
 public interface PropertyAccessor {

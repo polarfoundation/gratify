@@ -1,6 +1,5 @@
 package foundation.polar.gratify.annotation;
 
-
 import foundation.polar.gratify.utils.AssertUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 

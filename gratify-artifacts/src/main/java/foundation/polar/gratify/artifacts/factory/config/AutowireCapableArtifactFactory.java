@@ -8,38 +8,38 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.util.Set;
 
 /**
- * Extension of the {@link org.springframework.Artifacts.factory.ArtifactFactory}
+ * Extension of the {@link foundation.polar.gratify.artifacts.factory.ArtifactFactory}
  * interface to be implemented by Artifact factories that are capable of
  * autowiring, provided that they want to expose this functionality for
  * existing Artifact instances.
  *
  * <p>This subinterface of ArtifactFactory is not meant to be used in normal
- * application code: stick to {@link org.springframework.Artifacts.factory.ArtifactFactory}
- * or {@link org.springframework.Artifacts.factory.ListableArtifactFactory} for
+ * application code: stick to {@link foundation.polar.gratify.artifacts.factory.ArtifactFactory}
+ * or {@link foundation.polar.gratify.artifacts.factory.ListableArtifactFactory} for
  * typical use cases.
  *
  * <p>Integration code for other frameworks can leverage this interface to
- * wire and populate existing Artifact instances that Spring does not control
+ * wire and populate existing Artifact instances that Gratify does not control
  * the lifecycle of. This is particularly useful for WebWork Actions and
  * Tapestry Page objects, for example.
  *
  * <p>Note that this interface is not implemented by
- * {@link org.springframework.context.ApplicationContext} facades,
+ * {@link foundation.polar.gratify.context.ApplicationContext} facades,
  * as it is hardly ever used by application code. That said, it is available
  * from an application context too, accessible through ApplicationContext's
- * {@link org.springframework.context.ApplicationContext#getAutowireCapableArtifactFactory()}
+ * {@link foundation.polar.gratify.context.ApplicationContext#getAutowireCapableArtifactFactory()}
  * method.
  *
- * <p>You may also implement the {@link org.springframework.Artifacts.factory.ArtifactFactoryAware}
+ * <p>You may also implement the {@link foundation.polar.gratify.artifacts.factory.ArtifactFactoryAware}
  * interface, which exposes the internal ArtifactFactory even when running in an
  * ApplicationContext, to get access to an AutowireCapableArtifactFactory:
  * simply cast the passed-in ArtifactFactory to AutowireCapableArtifactFactory.
  *
  * @author Juergen Hoeller
- * @since 04.12.2003
- * @see org.springframework.Artifacts.factory.ArtifactFactoryAware
- * @see org.springframework.Artifacts.factory.config.ConfigurableListableArtifactFactory
- * @see org.springframework.context.ApplicationContext#getAutowireCapableArtifactFactory()
+ *
+ * @see foundation.polar.gratify.artifacts.factory.ArtifactFactoryAware
+ * @see foundation.polar.gratify.artifacts.factory.config.ConfigurableListableArtifactFactory
+ * @see foundation.polar.gratify.context.ApplicationContext#getAutowireCapableArtifactFactory()
  */
 public interface AutowireCapableArtifactFactory extends ArtifactFactory {
 
@@ -83,7 +83,7 @@ public interface AutowireCapableArtifactFactory extends ArtifactFactory {
     * through introspection of the Artifact class.
     * @see #createArtifact
     * @see #autowire
-    * @deprecated as of Spring 3.0: If you are using mixed autowiring strategies,
+    * @deprecated as of Gratify 3.0: If you are using mixed autowiring strategies,
     * prefer annotation-based autowiring for clearer demarcation of autowiring needs.
     */
    @Deprecated
@@ -94,7 +94,7 @@ public interface AutowireCapableArtifactFactory extends ArtifactFactory {
     * Artifact instance: to be appended to the fully-qualified Artifact class name,
     * e.g. "com.mypackage.MyClass.ORIGINAL", in order to enforce the given instance
     * to be returned, i.e. no proxies etc.
-    * @since 5.1
+    *
     * @see #initializeArtifact(Object, String)
     * @see #applyArtifactPostProcessorsBeforeInitialization(Object, String)
     * @see #applyArtifactPostProcessorsAfterInitialization(Object, String)
@@ -144,7 +144,7 @@ public interface AutowireCapableArtifactFactory extends ArtifactFactory {
     * @param ArtifactName the name of the Artifact, to be passed to it if necessary
     * (a Artifact definition of that name has to be available)
     * @return the Artifact instance to use, either the original or a wrapped one
-    * @throws org.springframework.Artifacts.factory.NoSuchArtifactDefinitionException
+    * @throws foundation.polar.gratify.artifacts.factory.NoSuchArtifactDefinitionException
     * if there is no Artifact definition with the given name
     * @throws ArtifactsException if the initialization failed
     * @see #initializeArtifact
@@ -241,7 +241,7 @@ public interface AutowireCapableArtifactFactory extends ArtifactFactory {
     * @param existingArtifact the existing Artifact instance
     * @param ArtifactName the name of the Artifact definition in the Artifact factory
     * (a Artifact definition of that name has to be available)
-    * @throws org.springframework.Artifacts.factory.NoSuchArtifactDefinitionException
+    * @throws foundation.polar.gratify.artifacts.factory.NoSuchArtifactDefinitionException
     * if there is no Artifact definition with the given name
     * @throws ArtifactsException if applying the property values failed
     * @see #autowireArtifactProperties
@@ -303,7 +303,7 @@ public interface AutowireCapableArtifactFactory extends ArtifactFactory {
 
    /**
     * Destroy the given Artifact instance (typically coming from {@link #createArtifact}),
-    * applying the {@link org.springframework.Artifacts.factory.DisposableArtifact} contract as well as
+    * applying the {@link foundation.polar.gratify.artifacts.factory.DisposableArtifact} contract as well as
     * registered {@link DestructionAwareArtifactPostProcessor DestructionAwareArtifactPostProcessors}.
     * <p>Any exception that arises during destruction should be caught
     * and logged instead of propagated to the caller of this method.
@@ -326,7 +326,7 @@ public interface AutowireCapableArtifactFactory extends ArtifactFactory {
     * @throws NoSuchArtifactDefinitionException if no matching Artifact was found
     * @throws NoUniqueArtifactDefinitionException if more than one matching Artifact was found
     * @throws ArtifactsException if the Artifact could not be created
-    * @since 4.3.3
+    *
     * @see #getArtifact(Class)
     */
    <T> NamedArtifactHolder<T> resolveNamedArtifact(Class<T> requiredType) throws ArtifactsException;
@@ -335,14 +335,14 @@ public interface AutowireCapableArtifactFactory extends ArtifactFactory {
     * Resolve a Artifact instance for the given Artifact name, providing a dependency descriptor
     * for exposure to target factory methods.
     * <p>This is effectively a variant of {@link #getArtifact(String, Class)} which supports
-    * factory methods with an {@link org.springframework.Artifacts.factory.InjectionPoint}
+    * factory methods with an {@link foundation.polar.gratify.artifacts.factory.InjectionPoint}
     * argument.
     * @param name the name of the Artifact to look up
     * @param descriptor the dependency descriptor for the requesting injection point
     * @return the corresponding Artifact instance
     * @throws NoSuchArtifactDefinitionException if there is no Artifact with the specified name
     * @throws ArtifactsException if the Artifact could not be created
-    * @since 5.1.5
+    *
     * @see #getArtifact(String, Class)
     */
    Object resolveArtifactByName(String name, DependencyDescriptor descriptor) throws ArtifactsException;

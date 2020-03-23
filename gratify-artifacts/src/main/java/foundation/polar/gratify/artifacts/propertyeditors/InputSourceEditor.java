@@ -11,13 +11,12 @@ import java.io.IOException;
 
 /**
  * Editor for {@code org.xml.sax.InputSource}, converting from a
- * Spring resource location String to a SAX InputSource object.
+ * Gratify resource location String to a SAX InputSource object.
  *
- * <p>Supports Spring-style URL notation: any fully qualified standard URL
- * ("file:", "http:", etc) and Spring's special "classpath:" pseudo-URL.
+ * <p>Supports Gratify-style URL notation: any fully qualified standard URL
+ * ("file:", "http:", etc) and Gratify's special "classpath:" pseudo-URL.
  *
  * @author Juergen Hoeller
- * @since 3.0.3
  * @see org.xml.sax.InputSource
  * @see foundation.polar.gratify.core.io.ResourceEditor
  * @see foundation.polar.gratify.core.io.ResourceLoader

@@ -19,10 +19,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 /**
- * Internal class that caches JavaArtifacts {@link java.beans.PropertyDescriptor}
+ * Internal class that caches JavaBeans {@link java.beans.PropertyDescriptor}
  * information for a Java class. Not intended for direct use by application code.
  *
- * <p>Necessary for Spring's own caching of bean descriptors within the application
+ * <p>Necessary for Gratify's own caching of bean descriptors within the application
  * {@link ClassLoader}, rather than relying on the JDK's system-wide {@link BeanInfo}
  * cache (in order to avoid leaks on individual application shutdown in a shared JVM).
  *
@@ -32,7 +32,7 @@ import java.util.concurrent.ConcurrentMap;
  * a static {@link #forClass(Class)} factory method to obtain instances.
  *
  * <p>Note that for caching to work effectively, some preconditions need to be met:
- * Prefer an arrangement where the Spring jars live in the same ClassLoader as the
+ * Prefer an arrangement where the Gratify jars live in the same ClassLoader as the
  * application classes, which allows for clean caching along with the application's
  * lifecycle in any case. For a web application, consider declaring a local
  * {@link foundation.polar.gratify.web.utils.IntrospectorCleanupListener} in {@code web.xml}
@@ -52,26 +52,23 @@ import java.util.concurrent.ConcurrentMap;
 public final class CachedIntrospectionResults {
 
    /**
-    * System property that instructs Spring to use the {@link Introspector#IGNORE_ALL_BEANINFO}
-    * mode when calling the JavaArtifacts {@link Introspector}: "spring.beaninfo.ignore", with a
-    * value of "true" skipping the search for {@code BeanInfo} classes (typically for scenarios
+    * System property that instructs gratify to use the {@link Introspector#IGNORE_ALL_BEANINFO}
+    * mode when calling the JavaBeans {@link Introspector}: "spring.beaninfo.ignore", with a
+    * value of "true" skipping the search for {@code ArtifactInfo} classes (typically for scenarios
     * where no such classes are being defined for beans in the application in the first place).
-    * <p>The default is "false", considering all {@code BeanInfo} metadata classes, like for
-    * standard {@link Introspector#getBeanInfo(Class)} calls. Consider switching this flag to
-    * "true" if you experience repeated ClassLoader access for non-existing {@code BeanInfo}
+    * <p>The default is "false", considering all {@code ArtifactInfo} metadata classes, like for
+    * standard {@link Introspector#getBeanInfo()} (Class)} calls. Consider switching this flag to
+    * "true" if you experience repeated ClassLoader access for non-existing {@code ArtifactInfo}
     * classes, in case such access is expensive on startup or on lazy loading.
     * <p>Note that such an effect may also indicate a scenario where caching doesn't work
-    * effectively: Prefer an arrangement where the Spring jars live in the same ClassLoader
+    * effectively: Prefer an arrangement where the Gratify jars live in the same ClassLoader
     * as the application classes, which allows for clean caching along with the application's
-    * lifecycle in any case. For a web application, consider declaring a local
-    * {@link foundation.polar.gratify.web.utils.IntrospectorCleanupListener} in {@code web.xml}
-    * in case of a multi-ClassLoader layout, which will allow for effective caching as well.
-    * @see Introspector#getBeanInfo(Class, int)
+    * lifecycle in any case.
+    * @see Introspector#getBeanInfo() (Class, int)
     */
-   public static final String IGNORE_BEANINFO_PROPERTY_NAME = "spring.beaninfo.ignore";
+   public static final String IGNORE_BEANINFO_PROPERTY_NAME = "gratify.beaninfo.ignore";
 
-
-   private static final boolean shouldIntrospectorIgnoreBeaninfoClasses =
+   private static final boolean shouldIntrospectorIgnoreArtifactinfoClasses =
       GratifyProperties.getFlag(IGNORE_BEANINFO_PROPERTY_NAME);
 
    /** Stores the ArtifactInfoFactory instances. */
@@ -101,11 +98,10 @@ public final class CachedIntrospectionResults {
    static final ConcurrentMap<Class<?>, CachedIntrospectionResults> softClassCache =
       new ConcurrentReferenceHashMap<>(64);
 
-
    /**
     * Accept the given ClassLoader as cache-safe, even if its classes would
     * not qualify as cache-safe in this CachedIntrospectionResults class.
-    * <p>This configuration method is only relevant in scenarios where the Spring
+    * <p>This configuration method is only relevant in scenarios where the Gratify
     * classes reside in a 'common' ClassLoader (e.g. the system ClassLoader)
     * whose lifecycle is not coupled to the application. In such a scenario,
     * CachedIntrospectionResults would by default not cache any of the application's
@@ -211,17 +207,17 @@ public final class CachedIntrospectionResults {
    /**
     * Retrieve a {@link BeanInfo} descriptor for the given target class.
     * @param beanClass the target class to introspect
-    * @return the resulting {@code BeanInfo} descriptor (never {@code null})
+    * @return the resulting {@code ArtifactInfo} descriptor (never {@code null})
     * @throws IntrospectionException from the underlying {@link Introspector}
     */
-   private static BeanInfo getBeanInfo(Class<?> beanClass) throws IntrospectionException {
+   private static BeanInfo getArtifactInfo(Class<?> beanClass) throws IntrospectionException {
       for (ArtifactInfoFactory beanInfoFactory : beanInfoFactories) {
-         BeanInfo beanInfo = beanInfoFactory.getBeanInfo(beanClass);
+         BeanInfo beanInfo = beanInfoFactory.getArtifactInfo(beanClass);
          if (beanInfo != null) {
             return beanInfo;
          }
       }
-      return (shouldIntrospectorIgnoreBeaninfoClasses ?
+      return (shouldIntrospectorIgnoreArtifactinfoClasses ?
          Introspector.getBeanInfo(beanClass, Introspector.IGNORE_ALL_BEANINFO) :
          Introspector.getBeanInfo(beanClass));
    }
@@ -247,7 +243,7 @@ public final class CachedIntrospectionResults {
          if (logger.isTraceEnabled()) {
             logger.trace("Getting BeanInfo for class [" + beanClass.getName() + "]");
          }
-         this.beanInfo = getBeanInfo(beanClass);
+         this.beanInfo = getArtifactInfo(beanClass);
 
          if (logger.isTraceEnabled()) {
             logger.trace("Caching PropertyDescriptors for class [" + beanClass.getName() + "]");
@@ -283,14 +279,14 @@ public final class CachedIntrospectionResults {
          this.typeDescriptorCache = new ConcurrentReferenceHashMap<>();
       }
       catch (IntrospectionException ex) {
-         throw new FatalArtifactException("Failed to obtain BeanInfo for class [" + beanClass.getName() + "]", ex);
+         throw new FatalArtifactException("Failed to obtain ArtifactInfo for class [" + beanClass.getName() + "]", ex);
       }
    }
 
    private void introspectInterfaces(Class<?> beanClass, Class<?> currClass) throws IntrospectionException {
       for (Class<?> ifc : currClass.getInterfaces()) {
          if (!ClassUtils.isJavaLanguageInterface(ifc)) {
-            for (PropertyDescriptor pd : getBeanInfo(ifc).getPropertyDescriptors()) {
+            for (PropertyDescriptor pd : getArtifactInfo(ifc).getPropertyDescriptors()) {
                PropertyDescriptor existingPd = this.propertyDescriptorCache.get(pd.getName());
                if (existingPd == null ||
                   (existingPd.getReadMethod() == null && pd.getReadMethod() != null)) {
@@ -306,11 +302,11 @@ public final class CachedIntrospectionResults {
    }
 
 
-   BeanInfo getBeanInfo() {
+   BeanInfo getArtifactInfo() {
       return this.beanInfo;
    }
 
-   Class<?> getBeanClass() {
+   Class<?> getArtifactClass() {
       return this.beanInfo.getBeanDescriptor().getBeanClass();
    }
 
@@ -325,7 +321,7 @@ public final class CachedIntrospectionResults {
          }
       }
       return (pd == null || pd instanceof GenericTypeAwarePropertyDescriptor ? pd :
-         buildGenericTypeAwarePropertyDescriptor(getBeanClass(), pd));
+         buildGenericTypeAwarePropertyDescriptor(getArtifactClass(), pd));
    }
 
    PropertyDescriptor[] getPropertyDescriptors() {
@@ -333,7 +329,7 @@ public final class CachedIntrospectionResults {
       int i = 0;
       for (PropertyDescriptor pd : this.propertyDescriptorCache.values()) {
          pds[i] = (pd instanceof GenericTypeAwarePropertyDescriptor ? pd :
-            buildGenericTypeAwarePropertyDescriptor(getBeanClass(), pd));
+            buildGenericTypeAwarePropertyDescriptor(getArtifactClass(), pd));
          i++;
       }
       return pds;

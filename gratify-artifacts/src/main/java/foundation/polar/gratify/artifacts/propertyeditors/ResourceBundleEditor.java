@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
  * <p>Only supports conversion <i>from</i> a String, but not <i>to</i> a String.
  *
  * Find below some examples of using this class in a (properly configured)
- * Spring container using XML-based metadata:
+ * Gratify container using XML-based metadata:
  *
  * <pre class="code"> &lt;bean id="errorDialog" class="..."&gt;
  *    &lt;!--
@@ -31,22 +31,22 @@ import java.util.ResourceBundle;
  *    &lt;property name="messages" value="com/messages/DialogMessages"/&gt;
  * &lt;/bean&gt;</pre>
  *
- * <p>A 'properly configured' Spring {@link foundation.polar.gratify.di.ApplicationContext container}
+ * <p>A 'properly configured' Gratify {@link foundation.polar.gratify.di.ApplicationContext container}
  * might contain a {@link foundation.polar.gratify.artifacts.factory.config.CustomEditorConfigurer}
  * definition such that the conversion can be effected transparently:
  *
- * <pre class="code"> &lt;bean class="org.springframework.beans.factory.config.CustomEditorConfigurer"&gt;
+ * <pre class="code"> &lt;bean class="foundation.polar.gratify.beans.factory.config.CustomEditorConfigurer"&gt;
  *    &lt;property name="customEditors"&gt;
  *        &lt;map&gt;
  *            &lt;entry key="java.util.ResourceBundle"&gt;
- *                &lt;bean class="org.springframework.beans.propertyeditors.ResourceBundleEditor"/&gt;
+ *                &lt;bean class="foundation.polar.gratify.beans.propertyeditors.ResourceBundleEditor"/&gt;
  *            &lt;/entry&gt;
  *        &lt;/map&gt;
  *    &lt;/property&gt;
  * &lt;/bean&gt;</pre>
  *
  * <p>Please note that this {@link java.beans.PropertyEditor} is <b>not</b>
- * registered by default with any of the Spring infrastructure.
+ * registered by default with any of the Gratify infrastructure.
  *
  * <p>Thanks to David Leal Valmana for the suggestion and initial prototype.
  *

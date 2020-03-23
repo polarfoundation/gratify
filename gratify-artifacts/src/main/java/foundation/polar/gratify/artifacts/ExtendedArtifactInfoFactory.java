@@ -11,7 +11,7 @@ import java.lang.reflect.Method;
 /**
  * {@link ArtifactInfoFactory} implementation that evaluates whether bean classes have
  * "non-standard" JavaBeans setter methods and are thus candidates for introspection
- * by Spring's (package-visible) {@code ExtendedArtifactInfo} implementation.
+ * by Gratify's (package-visible) {@code ExtendedArtifactInfo} implementation.
  *
  * <p>Ordered at {@link Ordered#LOWEST_PRECEDENCE} to allow other user-defined
  * {@link ArtifactInfoFactory} types to take precedence.
@@ -27,7 +27,7 @@ public class ExtendedArtifactInfoFactory implements ArtifactInfoFactory, Ordered
     */
    @Override
    @Nullable
-   public BeanInfo getBeanInfo(Class<?> beanClass) throws IntrospectionException {
+   public BeanInfo getArtifactInfo(Class<?> beanClass) throws IntrospectionException {
       return (supports(beanClass) ? new ExtendedArtifactInfo(Introspector.getBeanInfo(beanClass)) : null);
    }
 

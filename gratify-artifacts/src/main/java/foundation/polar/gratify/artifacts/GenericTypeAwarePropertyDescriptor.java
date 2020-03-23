@@ -94,7 +94,7 @@ public class GenericTypeAwarePropertyDescriptor extends PropertyDescriptor {
       this.propertyEditorClass = propertyEditorClass;
    }
 
-   public Class<?> getBeanClass() {
+   public Class<?> getArtifactClass() {
       return this.beanClass;
    }
 
@@ -148,12 +148,12 @@ public class GenericTypeAwarePropertyDescriptor extends PropertyDescriptor {
          return false;
       }
       GenericTypeAwarePropertyDescriptor otherPd = (GenericTypeAwarePropertyDescriptor) other;
-      return (getBeanClass().equals(otherPd.getBeanClass()) && PropertyDescriptorUtils.equals(this, otherPd));
+      return (getArtifactClass().equals(otherPd.getArtifactClass()) && PropertyDescriptorUtils.equals(this, otherPd));
    }
 
    @Override
    public int hashCode() {
-      int hashCode = getBeanClass().hashCode();
+      int hashCode = getArtifactClass().hashCode();
       hashCode = 29 * hashCode + ObjectUtils.nullSafeHashCode(getReadMethod());
       hashCode = 29 * hashCode + ObjectUtils.nullSafeHashCode(getWriteMethod());
       return hashCode;

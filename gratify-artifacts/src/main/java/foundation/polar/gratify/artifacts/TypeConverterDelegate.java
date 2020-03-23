@@ -27,13 +27,13 @@ import java.util.Optional;
  * Internal helper class for converting property values to target types.
  *
  * <p>Works on a given {@link PropertyEditorRegistrySupport} instance.
- * Used as a delegate by {@link BeanWrapperImpl} and {@link SimpleTypeConverter}.
+ * Used as a delegate by {@link ArtifactWrapperImpl} and {@link SimpleTypeConverter}.
  *
  * @author Juergen Hoeller
  * @author Rob Harrop
  * @author Dave Syer
  *
- * @see BeanWrapperImpl
+ * @see ArtifactWrapperImpl
  * @see SimpleTypeConverter
  */
 public class TypeConverterDelegate {
@@ -312,10 +312,10 @@ public class TypeConverterDelegate {
    private PropertyEditor findDefaultEditor(@Nullable Class<?> requiredType) {
       PropertyEditor editor = null;
       if (requiredType != null) {
-         // No custom editor -> check BeanWrapperImpl's default editors.
+         // No custom editor -> check ArtifactWrapperImpl's default editors.
          editor = this.propertyEditorRegistry.getDefaultEditor(requiredType);
          if (editor == null && String.class != requiredType) {
-            // No BeanWrapper default editor -> check standard JavaBean editor.
+            // No ArtifactWrapper default editor -> check standard JavaBean editor.
             editor = ArtifactUtils.findEditorByConvention(requiredType);
          }
       }

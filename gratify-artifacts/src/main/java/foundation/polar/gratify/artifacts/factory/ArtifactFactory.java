@@ -1,11 +1,11 @@
-package foundation.polar.gratify.artifacts.factory.config;
+package foundation.polar.gratify.artifacts.factory;
 
 import foundation.polar.gratify.artifacts.ArtifactsException;
 import foundation.polar.gratify.core.ResolvableType;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
- * The root interface for accessing a Spring bean container.
+ * The root interface for accessing a Gratify bean container.
  * This is the basic client view of a bean container;
  * further interfaces such as {@link ListableArtifactFactory} and
  * {@link foundation.polar.gratify.artifacts.factory.config.ConfigurableArtifactFactory}
@@ -17,7 +17,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * (the Prototype design pattern), or a single shared instance (a superior
  * alternative to the Singleton design pattern, in which the instance is a
  * singleton in the scope of the factory). Which type of instance will be returned
- * depends on the bean factory configuration: the API is the same. Since Spring
+ * depends on the bean factory configuration: the API is the same. Since Gratify
  * 2.0, further scopes are available depending on the concrete application
  * context (e.g. "request" and "session" scopes in a web environment).
  *
@@ -30,11 +30,11 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * <p>Note that it is generally better to rely on Dependency Injection
  * ("push" configuration) to configure application objects through setters
  * or constructors, rather than use any form of "pull" configuration like a
- * ArtifactFactory lookup. Spring's Dependency Injection functionality is
+ * ArtifactFactory lookup. Gratify's Dependency Injection functionality is
  * implemented using this ArtifactFactory interface and its subinterfaces.
  *
  * <p>Normally a ArtifactFactory will load bean definitions stored in a configuration
- * source (such as an XML document), and use the {@code org.springframework.beans}
+ * source (such as an XML document), and use the {@codefoundation.polar.gratify.artifacts}
  * package to configure the beans. However, an implementation could simply return
  * Java objects it creates as necessary directly in Java code. There are no
  * constraints on how the definitions could be stored: LDAP, RDBMS, XML,
@@ -107,7 +107,7 @@ public interface ArtifactFactory {
 
    /**
     * Return an instance, which may be shared or independent, of the specified bean.
-    * <p>This method allows a Spring ArtifactFactory to be used as a replacement for the
+    * <p>This method allows a Gratify ArtifactFactory to be used as a replacement for the
     * Singleton or Prototype design pattern. Callers may retain references to
     * returned objects in the case of Singleton beans.
     * <p>Translates aliases back to the corresponding canonical bean name.

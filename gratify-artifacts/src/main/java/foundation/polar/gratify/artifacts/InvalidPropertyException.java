@@ -40,7 +40,7 @@ public class InvalidPropertyException extends FatalArtifactException {
    /**
     * Return the offending bean class.
     */
-   public Class<?> getBeanClass() {
+   public Class<?> getArtifactClass() {
       return this.artifactClass;
    }
 

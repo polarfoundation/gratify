@@ -5,7 +5,6 @@ package foundation.polar.gratify.artifacts;
  * that carry a configuration source object.
  *
  * @author Juergen Hoeller
- * @since 2.0
  */
 public interface ArtifactMetadataElement {
    /**

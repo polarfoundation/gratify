@@ -45,7 +45,7 @@ public abstract class PropertyMatches {
     * @param maxDistance the maximum property distance allowed for matches
     */
    public static PropertyMatches forProperty(String propertyName, Class<?> beanClass, int maxDistance) {
-      return new BeanPropertyMatches(propertyName, beanClass, maxDistance);
+      return new ArtifactPropertyMatches(propertyName, beanClass, maxDistance);
    }
 
    /**
@@ -162,9 +162,9 @@ public abstract class PropertyMatches {
 
    // Concrete subclasses
 
-   private static class BeanPropertyMatches extends PropertyMatches {
+   private static class ArtifactPropertyMatches extends PropertyMatches {
 
-      public BeanPropertyMatches(String propertyName, Class<?> beanClass, int maxDistance) {
+      public ArtifactPropertyMatches(String propertyName, Class<?> beanClass, int maxDistance) {
          super(propertyName,
             calculateMatches(propertyName, ArtifactUtils.getPropertyDescriptors(beanClass), maxDistance));
       }
@@ -193,7 +193,7 @@ public abstract class PropertyMatches {
       @Override
       public String buildErrorMessage() {
          StringBuilder msg = new StringBuilder(160);
-         msg.append("Bean property '").append(getPropertyName()).append(
+         msg.append("Artifact property '").append(getPropertyName()).append(
             "' is not writable or has an invalid setter method. ");
          if (!ObjectUtils.isEmpty(getPossibleMatches())) {
             appendHintMessage(msg);
@@ -226,7 +226,7 @@ public abstract class PropertyMatches {
       @Override
       public String buildErrorMessage() {
          StringBuilder msg = new StringBuilder(80);
-         msg.append("Bean property '").append(getPropertyName()).append("' has no matching field.");
+         msg.append("Artifact property '").append(getPropertyName()).append("' has no matching field.");
          if (!ObjectUtils.isEmpty(getPossibleMatches())) {
             msg.append(' ');
             appendHintMessage(msg);

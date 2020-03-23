@@ -1,5 +1,6 @@
 package foundation.polar.gratify.artifacts.factory.config;
 
+import foundation.polar.gratify.artifacts.ArtifactsException;
 import foundation.polar.gratify.artifacts.factory.ArtifactFactory;
 import foundation.polar.gratify.utils.ClassUtils;
 import foundation.polar.gratify.utils.StringUtils;
@@ -11,7 +12,7 @@ import org.apache.commons.logging.LogFactory;
  *
  * @author Arjen Poutsma
  */
-public class DeprecatedArtifactWarner extends ArtifactFactoryPostProcessor {
+public class DeprecatedArtifactWarner implements ArtifactFactoryPostProcessor {
    /**
     * Logger available to subclasses.
     */
@@ -31,20 +32,20 @@ public class DeprecatedArtifactWarner extends ArtifactFactoryPostProcessor {
    }
    
    @Override
-   public void postProcessArtifactFactory(ConfigurableListableArtifactFactory beanFactory) throws ArtifactsException {
+   public void postProcessArtifactFactory(ConfigurableListableArtifactFactory artifactFactory) throws ArtifactsException {
       if (isLogEnabled()) {
-         String[] beanNames = beanFactory.getArtifactDefinitionNames();
+         String[] beanNames = artifactFactory.getArtifactDefinitionNames();
          for (String beanName : beanNames) {
             String nameToLookup = beanName;
-            if (beanFactory.isFactoryArtifact(beanName)) {
+            if (artifactFactory.isFactoryArtifact(beanName)) {
                nameToLookup = ArtifactFactory.FACTORY_BEAN_PREFIX + beanName;
             }
-            Class<?> beanType = beanFactory.getType(nameToLookup);
+            Class<?> beanType = artifactFactory.getType(nameToLookup);
             if (beanType != null) {
                Class<?> userClass = ClassUtils.getUserClass(beanType);
                if (userClass.isAnnotationPresent(Deprecated.class)) {
-                  ArtifactDefinition beanDefinition = beanFactory.getArtifactDefinition(beanName);
-                  logDeprecatedArtifact(beanName, beanType, beanDefinition);
+                  ArtifactDefinition artifactDefinition = artifactFactory.getArtifactDefinition(beanName);
+                  logDeprecatedArtifact(beanName, beanType, artifactDefinition);
                }
             }
          }
@@ -55,15 +56,15 @@ public class DeprecatedArtifactWarner extends ArtifactFactoryPostProcessor {
     * Logs a warning for a bean annotated with {@link Deprecated @Deprecated}.
     * @param beanName the name of the deprecated bean
     * @param beanType the user-specified type of the deprecated bean
-    * @param beanDefinition the definition of the deprecated bean
+    * @param artifactDefinition the definition of the deprecated bean
     */
-   protected void logDeprecatedArtifact(String beanName, Class<?> beanType, ArtifactDefinition beanDefinition) {
+   protected void logDeprecatedArtifact(String beanName, Class<?> beanType, ArtifactDefinition artifactDefinition) {
       StringBuilder builder = new StringBuilder();
       builder.append(beanType);
       builder.append(" ['");
       builder.append(beanName);
       builder.append('\'');
-      String resourceDescription = beanDefinition.getResourceDescription();
+      String resourceDescription = artifactDefinition.getResourceDescription();
       if (StringUtils.hasLength(resourceDescription)) {
          builder.append(" in ");
          builder.append(resourceDescription);

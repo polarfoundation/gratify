@@ -5,11 +5,10 @@ package foundation.polar.gratify.artifacts.factory.config;
  * Designed for use with a lambda expression or method reference.
  *
  * @author Juergen Hoeller
- * @since 5.0
- * @see org.springframework.beans.factory.support.BeanDefinitionBuilder#applyCustomizers
+ * @see foundation.polar.gratify.artifacts.factory.support.ArtifactDefinitionBuilder#applyCustomizers
  */
 @FunctionalInterface
-public interface BeanDefinitionCustomizer {
+public interface ArtifactDefinitionCustomizer {
 
    /**
     * Customize the given bean definition.

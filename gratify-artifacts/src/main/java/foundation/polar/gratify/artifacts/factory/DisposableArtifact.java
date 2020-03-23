@@ -3,20 +3,20 @@ package foundation.polar.gratify.artifacts.factory;
 /**
  * Interface to be implemented by beans that want to release resources on destruction.
  * A {@link ArtifactFactory} will invoke the destroy method on individual destruction of a
- * scoped bean. An {@link org.springframework.context.ApplicationContext} is supposed
+ * scoped bean. An {@link foundation.polar.gratify.context.ApplicationContext} is supposed
  * to dispose all of its singletons on shutdown, driven by the application lifecycle.
  *
- * <p>A Spring-managed bean may also implement Java's {@link AutoCloseable} interface
+ * <p>A Gratify-managed bean may also implement Java's {@link AutoCloseable} interface
  * for the same purpose. An alternative to implementing an interface is specifying a
  * custom destroy method, for example in an XML bean definition. For a list of all
- * bean lifecycle methods, see the {@link ArtifactFactory BeanFactory javadocs}.
+ * bean lifecycle methods, see the {@link ArtifactFactory ArtifactFactory javadocs}.
  *
  * @author Juergen Hoeller
  *
  * @see InitializingArtifact
- * @see org.springframework.beans.factory.support.RootBeanDefinition#getDestroyMethodName()
- * @see org.springframework.beans.factory.config.ConfigurableBeanFactory#destroySingletons()
- * @see org.springframework.context.ConfigurableApplicationContext#close()
+ * @see foundation.polar.gratify.artifacts.factory.support.RootArtifactDefinition#getDestroyMethodName()
+ * @see foundation.polar.gratify.artifacts.factory.config.ConfigurableArtifactFactory#destroySingletons()
+ * @see foundation.polar.gratify.context.ConfigurableApplicationContext#close()
  */
 public interface DisposableArtifact {
    /**

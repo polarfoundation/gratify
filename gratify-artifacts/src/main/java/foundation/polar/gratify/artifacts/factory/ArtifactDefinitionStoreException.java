@@ -1,9 +1,10 @@
-package foundation.polar.gratify.artifacts;
+package foundation.polar.gratify.artifacts.factory;
 
+import foundation.polar.gratify.artifacts.FatalArtifactException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
- * Exception thrown when a BeanFactory encounters an invalid bean definition:
+ * Exception thrown when a ArtifactFactory encounters an invalid bean definition:
  * e.g. in case of incomplete or contradictory bean metadata.
  *
  * @author Rod Johnson
@@ -104,7 +105,7 @@ public class ArtifactDefinitionStoreException extends FatalArtifactException {
     * Return the name of the bean, if available.
     */
    @Nullable
-   public String getBeanName() {
+   public String getArtifactName() {
       return this.artifactName;
    }
 }

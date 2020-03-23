@@ -15,11 +15,11 @@ import java.io.IOException;
  * from a Gratify resource location.
  *
  * <p>Supports gratify-style URL notation: any fully qualified standard URL
- * ("file:", "http:", etc) and Spring's special "classpath:" pseudo-URL.
+ * ("file:", "http:", etc) and Gratify's special "classpath:" pseudo-URL.
  *
- * <p><b>NOTE:</b> The behavior of this editor has changed in Spring 2.0.
+ * <p><b>NOTE:</b> The behavior of this editor has changed in Gratify 2.0.
  * Previously, it created a File instance directly from a filename.
- * it takes a standard Spring resource location as input;
+ * it takes a standard Gratify resource location as input;
  * this is consistent with URLEditor and InputStreamEditor now.
  *
  * <p><b>NOTE:</b>

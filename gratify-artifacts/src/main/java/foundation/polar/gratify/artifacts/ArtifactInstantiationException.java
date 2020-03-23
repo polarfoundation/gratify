@@ -75,7 +75,7 @@ public class ArtifactInstantiationException extends FatalArtifactException {
     * Return the offending bean class (never {@code null}).
     * @return the class that was to be instantiated
     */
-   public Class<?> getBeanClass() {
+   public Class<?> getArtifactClass() {
       return this.beanClass;
    }
 

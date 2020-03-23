@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 import java.util.Enumeration;
 
 /**
- * Common delegate methods for Spring's internal {@link PropertyDescriptor} implementations.
+ * Common delegate methods for Gratify's internal {@link PropertyDescriptor} implementations.
  *
  * @author Chris Beams
  * @author Juergen Hoeller

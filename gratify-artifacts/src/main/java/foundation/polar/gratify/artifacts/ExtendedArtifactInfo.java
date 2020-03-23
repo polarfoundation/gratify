@@ -13,12 +13,12 @@ import java.util.*;
 import java.util.List;
 
 /**
- * Decorator for a standard {@link BeanInfo} object, e.g. as created by
- * {@link Introspector#getBeanInfo(Class)}, designed to discover and register
+ * Decorator for a standard {@link ArtifactInfo} object, e.g. as created by
+ * {@link Introspector#getArtifactInfo(Class)}, designed to discover and register
  * static and/or non-void returning setter methods. For example:
  *
  * <pre class="code">
- * public class Bean {
+ * public class Artifact {
  *
  *     private Foo foo;
  *
@@ -26,7 +26,7 @@ import java.util.List;
  *         return this.foo;
  *     }
  *
- *     public Bean setFoo(Foo foo) {
+ *     public Artifact setFoo(Foo foo) {
  *         this.foo = foo;
  *         return this;
  *     }
@@ -35,18 +35,18 @@ import java.util.List;
  * The standard JavaBeans {@code Introspector} will discover the {@code getFoo} read
  * method, but will bypass the {@code #setFoo(Foo)} write method, because its non-void
  * returning signature does not comply with the JavaBeans specification.
- * {@code ExtendedBeanInfo}, on the other hand, will recognize and include it. This is
+ * {@code ExtendedArtifactInfo}, on the other hand, will recognize and include it. This is
  * designed to allow APIs with "builder" or method-chaining style setter signatures to be
- * used within Spring {@code <beans>} XML. {@link #getPropertyDescriptors()} returns all
- * existing property descriptors from the wrapped {@code BeanInfo} as well any added for
+ * used within Gratify {@code <beans>} XML. {@link #getPropertyDescriptors()} returns all
+ * existing property descriptors from the wrapped {@code ArtifactInfo} as well any added for
  * non-void returning setters. Both standard ("non-indexed") and
  * <a href="https://docs.oracle.com/javase/tutorial/javabeans/writing/properties.html">
  * indexed properties</a> are fully supported.
  *
  * @author Chris Beams
  * @author Juergen Hoeller
- * @see #ExtendedBeanInfo(BeanInfo)
- * @see ExtendedBeanInfoFactory
+ * @see #ExtendedArtifactInfo(BeanInfo)
+ * @see ExtendedArtifactInfoFactory
  * @see CachedIntrospectionResults
  */
 public class ExtendedArtifactInfo implements BeanInfo {
@@ -56,7 +56,6 @@ public class ExtendedArtifactInfo implements BeanInfo {
 
    private final Set<PropertyDescriptor> propertyDescriptors = new TreeSet<>(new PropertyDescriptorComparator());
 
-
    /**
     * Wrap the given {@link BeanInfo} instance; copy all its existing property descriptors
     * locally, wrapping each in a custom {@link SimpleIndexedPropertyDescriptor indexed}
@@ -64,7 +63,7 @@ public class ExtendedArtifactInfo implements BeanInfo {
     * variant that bypasses default JDK weak/soft reference management; then search
     * through its method descriptors to find any non-void returning write methods and
     * update or create the corresponding {@link PropertyDescriptor} for each one found.
-    * @param delegate the wrapped {@code BeanInfo}, which is never modified
+    * @param delegate the wrapped {@code ArtifactInfo}, which is never modified
     * @see #getPropertyDescriptors()
     */
    public ExtendedArtifactInfo(BeanInfo delegate) {
@@ -187,7 +186,7 @@ public class ExtendedArtifactInfo implements BeanInfo {
     * Return the set of {@link PropertyDescriptor PropertyDescriptors} from the wrapped
     * {@link BeanInfo} object as well as {@code PropertyDescriptors} for each non-void
     * returning setter method found during construction.
-    * @see #ExtendedBeanInfo(BeanInfo)
+    * @see #ExtendedArtifactInfo(BeanInfo)
     */
    @Override
    public PropertyDescriptor[] getPropertyDescriptors() {
@@ -228,7 +227,6 @@ public class ExtendedArtifactInfo implements BeanInfo {
    public MethodDescriptor[] getMethodDescriptors() {
       return this.delegate.getMethodDescriptors();
    }
-
 
    /**
     * A simple {@link PropertyDescriptor}.
@@ -497,7 +495,7 @@ public class ExtendedArtifactInfo implements BeanInfo {
    /**
     * Sorts PropertyDescriptor instances alpha-numerically to emulate the behavior of
     * {@link java.beans.BeanInfo#getPropertyDescriptors()}.
-    * @see ExtendedBeanInfo#propertyDescriptors
+    * @see ExtendedArtifactInfo#propertyDescriptors
     */
    static class PropertyDescriptorComparator implements Comparator<PropertyDescriptor> {
 

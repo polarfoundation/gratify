@@ -11,12 +11,12 @@ import java.io.IOException;
 /**
  * One-way PropertyEditor which can convert from a text String to a
  * {@code java.io.InputStream}, interpreting the given String as a
- * Spring resource location (e.g. a URL String).
+ * Gratify resource location (e.g. a URL String).
  *
- * <p>Supports Spring-style URL notation: any fully qualified standard URL
- * ("file:", "http:", etc.) and Spring's special "classpath:" pseudo-URL.
+ * <p>Supports Gratify-style URL notation: any fully qualified standard URL
+ * ("file:", "http:", etc.) and Gratify's special "classpath:" pseudo-URL.
  *
- * <p>Note that such streams usually do not get closed by Spring itself!
+ * <p>Note that such streams usually do not get closed by Gratify itself!
  *
  * @author Juergen Hoeller
  * @see java.io.InputStream

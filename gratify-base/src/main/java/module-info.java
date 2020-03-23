@@ -4,10 +4,11 @@ module gratify.base {
    requires java.management;
    requires transitive java.desktop;
    requires transitive org.apache.logging.log4j;
+   requires transitive java.annotation;
+   requires cglib;
    requires java.logging;
    requires org.checkerframework.checker.qual;
    requires org.slf4j;
-   requires java.annotation;
    requires jopt.simple;
    requires reactor.core;
    requires org.reactivestreams; // migratory
@@ -24,4 +25,6 @@ module gratify.base {
    exports foundation.polar.gratify.core.io;
    exports foundation.polar.gratify.env;
    exports foundation.polar.gratify.inject;
+   exports foundation.polar.gratify.annotation;
+   exports foundation.polar.gratify.core.type;
 }

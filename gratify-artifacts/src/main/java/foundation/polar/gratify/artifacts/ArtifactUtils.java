@@ -21,7 +21,7 @@ import java.net.URL;
 import java.time.temporal.Temporal;
 import java.util.*;
 /**
- * Static convenience methods for JavaArtifacts: for instantiating beans,
+ * Static convenience methods for JavaBeans: for instantiating beans,
  * checking bean property types, copying bean properties, etc.
  *
  * <p>Mainly for internal use within the framework, but to some degree also
@@ -346,7 +346,7 @@ public class ArtifactUtils {
 
 
    /**
-    * Retrieve the JavaArtifacts {@code PropertyDescriptor}s of a given class.
+    * Retrieve the JavaBeans {@code PropertyDescriptor}s of a given class.
     * @param clazz the Class to retrieve the PropertyDescriptors for
     * @return an array of {@code PropertyDescriptors} for the given class
     * @throws ArtifactsException if PropertyDescriptor look fails
@@ -357,7 +357,7 @@ public class ArtifactUtils {
    }
 
    /**
-    * Retrieve the JavaArtifacts {@code PropertyDescriptors} for the given property.
+    * Retrieve the JavaBeans {@code PropertyDescriptors} for the given property.
     * @param clazz the Class to retrieve the PropertyDescriptor for
     * @param propertyName the name of the property
     * @return the corresponding PropertyDescriptor, or {@code null} if none
@@ -372,7 +372,7 @@ public class ArtifactUtils {
    }
 
    /**
-    * Find a JavaArtifacts {@code PropertyDescriptor} for the given method,
+    * Find a JavaBeans {@code PropertyDescriptor} for the given method,
     * with the method either being the read method or the write method for
     * that bean property.
     * @param method the method to find a corresponding PropertyDescriptor for,
@@ -386,7 +386,7 @@ public class ArtifactUtils {
    }
 
    /**
-    * Find a JavaArtifacts {@code PropertyDescriptor} for the given method,
+    * Find a JavaBeans {@code PropertyDescriptor} for the given method,
     * with the method either being the read method or the write method for
     * that bean property.
     * @param method the method to find a corresponding PropertyDescriptor for
@@ -407,9 +407,9 @@ public class ArtifactUtils {
    }
 
    /**
-    * Find a JavaArtifacts PropertyEditor following the 'Editor' suffix convention
+    * Find a JavaBeans PropertyEditor following the 'Editor' suffix convention
     * (e.g. "mypackage.MyDomainClass" -> "mypackage.MyDomainClassEditor").
-    * <p>Compatible to the standard JavaArtifacts convention as implemented by
+    * <p>Compatible to the standard JavaBeans convention as implemented by
     * {@link java.beans.PropertyEditorManager} but isolated from the latter's
     * registered default editors for primitive types.
     * @param targetType the type to find an editor for

@@ -8,13 +8,13 @@ import java.beans.PropertyEditor;
  * Encapsulates methods for registering JavaBeans {@link PropertyEditor PropertyEditors}.
  * This is the central interface that a {@link PropertyEditorRegistrar} operates on.
  *
- * <p>Extended by {@link BeanWrapper}; implemented by {@link BeanWrapperImpl}
+ * <p>Extended by {@link ArtifactWrapper}; implemented by {@link ArtifactWrapperImpl}
  * and {@link foundation.polar.gratify.validation.DataBinder}.
  *
  * @author Juergen Hoeller
  * @see java.beans.PropertyEditor
  * @see PropertyEditorRegistrar
- * @see BeanWrapper
+ * @see ArtifactWrapper
  * @see foundation.polar.gratify.validation.DataBinder
  */
 public interface PropertyEditorRegistry {

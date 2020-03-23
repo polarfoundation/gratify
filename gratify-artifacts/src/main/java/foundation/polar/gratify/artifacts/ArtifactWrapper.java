@@ -16,7 +16,7 @@ import java.beans.PropertyDescriptor;
  * <p>This interface supports <b>nested properties</b> enabling the setting
  * of properties on subproperties to an unlimited depth.
  *
- * <p>A BeanWrapper's default for the "extractOldValueForEditor" setting
+ * <p>A ArtifactWrapper's default for the "extractOldValueForEditor" setting
  * is "false", to avoid side effects caused by getter method invocations.
  * Turn this to "true" to expose present property values to custom editors.
  *
@@ -24,22 +24,20 @@ import java.beans.PropertyDescriptor;
  * @author Juergen Hoeller
  * @see PropertyAccessor
  * @see PropertyEditorRegistry
- * @see PropertyAccessorFactory#forBeanPropertyAccess
- * @see foundation.polar.gratify.artifacts.factory.BeanFactory
- * @see foundation.polar.gratify.validation.BeanPropertyBindingResult
- * @see foundation.polar.gratify.validation.DataBinder#initBeanPropertyAccess()
+ * @see PropertyAccessorFactory#forArtifactPropertyAccess
+ * @see foundation.polar.gratify.artifacts.factory.ArtifactFactory
+ * @see foundation.polar.gratify.validation.ArtifactPropertyBindingResult
+ * @see foundation.polar.gratify.validation.DataBinder#initArtifactPropertyAccess()
  */
-public interface ArtifactWrapper {
+public interface ArtifactWrapper extends ConfigurablePropertyAccessor {
    /**
     * Specify a limit for array and collection auto-growing.
-    * <p>Default is unlimited on a plain BeanWrapper.
-    * @since 4.1
+    * <p>Default is unlimited on a plain ArtifactWrapper.
     */
    void setAutoGrowCollectionLimit(int autoGrowCollectionLimit);
 
    /**
     * Return the limit for array and collection auto-growing.
-    * @since 4.1
     */
    int getAutoGrowCollectionLimit();
 
